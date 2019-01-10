@@ -1,0 +1,2 @@
+﻿nuget spec KawanSoft.KawanSoft.Safester.CryptoLibrary -Force
+nuget pack CryptoLibrary.csproj -Prop Configuration=Release

@@ -7,14 +7,14 @@ using System.Runtime.InteropServices;
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
 [assembly: AssemblyTitle("CryptoLibrary")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Safester C# OpenPGp Library")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("KawanSoft")]
 [assembly: AssemblyProduct("CryptoLibrary")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-[assembly: NeutralResourcesLanguage("fr")]
+[assembly: NeutralResourcesLanguage("en-US")]
 
 // Les informations de version pour un assembly se composent des quatre valeurs suivantes :
 //
