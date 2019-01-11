@@ -3,20 +3,20 @@
   <metadata>
     <id>Safester.CryptoLibrary</id>
     <version>1.0.0</version>
-    <title>CryptoLibrary C# SDK</title>
+    <title>CryptoLibrary C# OpenPGP SDK</title>
 	<authors>KawanSoft</authors>
 	<owners>KawanSoft</owners>
-	<licenseUrl>https://github.com/kawansoft/AceQL.Client/blob/master/LICENSE</licenseUrl>
-	<projectUrl>https://github.com/kawansoft/AceQL.Client</projectUrl>
-	<iconUrl>https://www.aceql.com/favicon.png</iconUrl>
+	<licenseUrl>https://github.com/kawansoft/Safester.CryptoLibrary/blob/master/LICENSE</licenseUrl>
+	<projectUrl>https://github.com/kawansoft/Safester.CryptoLibrary</projectUrl>
+	<iconUrl>https://www.kawansoft.com/favicon.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
-	Safester C# OpenPGP Library
+	Safester C# OpenPGP Library / SDK
 	</description>
     <releaseNotes>
 	First version
 	</releaseNotes>
     <copyright>Copyright 2019</copyright>
-    <tags>OpenPGP PGP Email Encryption Email Decryption</tags>
+    <tags>OpenPGP PGP Email Encryption Email Decryption Cryptography</tags>
   </metadata>
 </package>

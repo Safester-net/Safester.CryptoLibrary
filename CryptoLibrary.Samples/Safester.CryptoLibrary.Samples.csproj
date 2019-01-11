@@ -45,8 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Src\DsaElGamalKeyRingGenerator.cs" />
-    <Compile Include="Src\RsaKeyRingGenerator.cs" />
+    <Compile Include="SrcBounty\DsaElGamalKeyRingGenerator.cs" />
+    <Compile Include="SrcBounty\RsaKeyRingGenerator.cs" />
     <Compile Include="Src\TextEncryptionSample.cs" />
     <Compile Include="Src\FileEncryptionSample.cs" />
   </ItemGroup>

@@ -38,6 +38,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Src\Api.Util\DsaElGamalKeyGeneratorUtil.cs" />
+    <Compile Include="Src\Api.Util\RsaKeyGeneratorUtil.cs" />
     <Compile Include="Src\Api\PgpAsymAlgo.cs" />
     <Compile Include="Src\Api\PgpAsymKeyLength.cs" />
     <Compile Include="Src\Api\PgpDecryptor.cs" />
