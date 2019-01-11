@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CryptoLibrary.Src.Api
+namespace Safester.CryptoLibrary.Api
 {
     class PgpEncryptionUtil
     {

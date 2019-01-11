@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Org.BouncyCastle.Security;
 
-namespace CryptoLibrary.Src.Api
+namespace Safester.CryptoLibrary.Api
 {
     /// <summary>
     /// Allows to PGP encrypt a stream or a string using a List of PGP Public Keys (PgpPublicKey objects).

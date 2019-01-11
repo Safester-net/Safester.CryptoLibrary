@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>CryptoLibrary</id>
+    <id>Safester.CryptoLibrary</id>
     <version>1.0.0</version>
     <title>CryptoLibrary C# SDK</title>
 	<authors>KawanSoft</authors>
@@ -11,7 +11,7 @@
 	<iconUrl>https://www.aceql.com/favicon.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
-	Safester C# OpenPGp Library
+	Safester C# OpenPGP Library
 	</description>
     <releaseNotes>
 	First version

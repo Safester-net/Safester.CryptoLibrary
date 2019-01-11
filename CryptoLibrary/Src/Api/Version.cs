@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Org.BouncyCastle.Bcpg;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 // 10/01/19 21:21 NDP: all encryptions done
 
-namespace CryptoLibrary.Src.Api
+namespace Safester.CryptoLibrary.Api
 {
     /// <summary>
     /// Version info.
@@ -15,6 +16,6 @@ namespace CryptoLibrary.Src.Api
     {
         public static readonly String PRODUCT = "Safester OpenPGP Client SDK";
         public static readonly String VERSION_NUMBER = "v1.0.0";
-        public static readonly String DATE = "10-jan-2019";
+        public static readonly String DATE = "11-jan-2019";
     }
 }

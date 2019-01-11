@@ -31,8 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BouncyCastle.Crypto">
-      <HintPath>..\..\BouncyCastle.Crypto.dll</HintPath>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.4.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.8.4\lib\net40\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -45,20 +45,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Src\DsaElGamalKeyRingGenerator.cs" />
+    <Compile Include="Src\RsaKeyRingGenerator.cs" />
     <Compile Include="Src\TextEncryptionSample.cs" />
     <Compile Include="Src\FileEncryptionSample.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CryptoLibrary\CryptoLibrary.csproj">
-      <Project>{4A7A63FE-D4E6-4956-9A49-74669CA47DA4}</Project>
-      <Name>CryptoLibrary</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Howto\NugetHowto.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CryptoLibrary\Safester.CryptoLibrary.csproj">
+      <Project>{4a7a63fe-d4e6-4956-9a49-74669ca47da4}</Project>
+      <Name>Safester.CryptoLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

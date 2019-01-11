@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoLibrary", "CryptoLibrary\CryptoLibrary.csproj", "{4A7A63FE-D4E6-4956-9A49-74669CA47DA4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Safester.CryptoLibrary", "CryptoLibrary\Safester.CryptoLibrary.csproj", "{4A7A63FE-D4E6-4956-9A49-74669CA47DA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoLibrary.Samples", "CryptoLibrary.Samples\CryptoLibrary.Samples.csproj", "{BB1EBD6B-90C4-4AD0-872B-38AF91EF1BD2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Safester.CryptoLibrary.Samples", "CryptoLibrary.Samples\Safester.CryptoLibrary.Samples.csproj", "{BB1EBD6B-90C4-4AD0-872B-38AF91EF1BD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

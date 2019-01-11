@@ -1,4 +1,5 @@
-﻿using CryptoLibrary.Src.Api;
+﻿
+using Safester.CryptoLibrary.Api;
 using Org.BouncyCastle.Bcpg.OpenPgp;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CryptoLibrary.Samples.Src
+namespace Safester.CryptoLibrary.Samples
 {
     class FileEncryptionSample
     {

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CryptoLibrary.Src.Api
+namespace Safester.CryptoLibrary.Api
 {
     public class PgpDecryptor
     {
@@ -92,7 +92,7 @@ namespace CryptoLibrary.Src.Api
 
                 if (sKey == null)
                 {
-                    throw new ArgumentException("Secret key for message not found.");
+                    throw new ArgumentException("PGP Secret key for message not found.");
                 }
 
                 Stream clear = pbe.GetDataStream(sKey);
@@ -164,7 +164,7 @@ namespace CryptoLibrary.Src.Api
 
                 if (e.Message.Contains("Checksum mismatch at 0 of 20"))
                 {
-                    throw new PgpException("Wrong passphrase.");
+                    throw new PgpExceptionWrongPassphrase("Wrong passphrase. Can not decrypt.");
                 }
 
                 throw e;

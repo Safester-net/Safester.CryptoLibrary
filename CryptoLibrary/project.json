@@ -1,7 +1,8 @@
 ﻿{
   "supports": {},
   "dependencies": {
-    "PCLStorage": "1.0.2"
+    "PCLStorage": "1.0.2",
+    "Portable.BouncyCastle": "1.8.4"
   },
   "frameworks": {
     ".NETPortable,Version=v4.5,Profile=Profile7": {}
