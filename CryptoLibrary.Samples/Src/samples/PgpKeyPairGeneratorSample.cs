@@ -23,21 +23,21 @@ namespace CryptoLibrary.Samples.Src
     public class PgpKeyPairGeneratorSample
     {
 
-        private PgpPairKeyring pgpPairKeyring = null;
+        private PgpKeyPairHolder pgpKeyPairHolder = null;
 
-        public PgpPairKeyring PgpPairKeyring { get => pgpPairKeyring; }
+        public PgpKeyPairHolder PgpKeyPairHolder { get => pgpKeyPairHolder; }
 
-        public void Generate(string identity, string passphrase, PgpAsymAlgo pgpAsymAlgo, PgpAsymKeyLength pgpAsymKeyLength)
+        public void Generate(string identity, string passphrase, PublicKeyAlgorithm publicKeyAlgorithm, PublicKeyLength publicKeyLength)
         {
             Console.WriteLine(DateTime.Now + " Starting generation...");
-            PgpKeyPairGenerator pgpKeyPairGenerator = new PgpKeyPairGenerator(identity, passphrase.ToCharArray(), pgpAsymAlgo, pgpAsymKeyLength);
-            pgpPairKeyring = pgpKeyPairGenerator.Generate();
+            PgpKeyPairGenerator pgpKeyPairGenerator = new PgpKeyPairGenerator(identity, passphrase.ToCharArray(), publicKeyAlgorithm, publicKeyLength);
+            pgpKeyPairHolder = pgpKeyPairGenerator.Generate();
 
             Console.WriteLine(DateTime.Now + " Done");
             Console.WriteLine();
-            Console.WriteLine(PgpPairKeyring.PrivateKeyRing);
+            Console.WriteLine(PgpKeyPairHolder.PrivateKeyRing);
             Console.WriteLine();
-            Console.WriteLine(PgpPairKeyring.PublicKeyRing);
+            Console.WriteLine(PgpKeyPairHolder.PublicKeyRing);
             Console.WriteLine();
             Console.WriteLine("Press enter to close....");
             Console.ReadLine();

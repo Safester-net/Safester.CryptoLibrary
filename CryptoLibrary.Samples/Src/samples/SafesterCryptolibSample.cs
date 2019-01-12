@@ -29,13 +29,13 @@ namespace Safester.CryptoLibrary.Samples.Src.samples
 {
     public class SafesterCryptolibSample
     {
-        public static void doIt()
+        public static void DoIt()
         {
-            PgpKeyPairGenerator pgpKeyPairGenerator = new PgpKeyPairGenerator("john@smith.com", "my_passphrase".ToCharArray(), PgpAsymAlgo.DSA_ELGAMAL, PgpAsymKeyLength.BITS_1024);
-            PgpPairKeyring pgpPairKeyring = pgpKeyPairGenerator.Generate();
+            PgpKeyPairGenerator pgpKeyPairGenerator = new PgpKeyPairGenerator("john@smith.com", "my_passphrase".ToCharArray(), PublicKeyAlgorithm.DSA_ELGAMAL, PublicKeyLength.BITS_1024);
+            PgpKeyPairHolder pgpKeyPairHolder = pgpKeyPairGenerator.Generate();
 
-            String privateKeyring = pgpPairKeyring.PrivateKeyRing;
-            String publicKeyring = pgpPairKeyring.PublicKeyRing;
+            String privateKeyring = pgpKeyPairHolder.PrivateKeyRing;
+            String publicKeyring = pgpKeyPairHolder.PublicKeyRing;
 
             Console.WriteLine(privateKeyring);
             Console.WriteLine(publicKeyring);
@@ -50,8 +50,8 @@ namespace Safester.CryptoLibrary.Samples.Src.samples
             Stream inputStream = File.OpenRead(inFile);
             Stream outputStream = File.OpenWrite(outFile);
 
-            PgpEncryptor pgpEncryptor = new PgpEncryptor(false, true);
-            pgpEncryptor.Encrypt(encKeys, inputStream, outputStream);
+            Encryptor encryptor = new Encryptor(false, true);
+            encryptor.Encrypt(encKeys, inputStream, outputStream);
             Console.WriteLine("Encryption done.");
 
             string inFileEncrypted = outFile;
@@ -63,8 +63,8 @@ namespace Safester.CryptoLibrary.Samples.Src.samples
             byte[] bytes = Encoding.UTF8.GetBytes(privateKeyring);
             MemoryStream memoryStreamKeyIn = new MemoryStream(bytes);
 
-            PgpDecryptor PgpDecryptor = new PgpDecryptor(memoryStreamKeyIn, "my_passphrase".ToCharArray());
-            PgpDecryptor.Decrypt(inputStream, outputStream);
+            Decryptor decryptor = new Decryptor(memoryStreamKeyIn, "my_passphrase".ToCharArray());
+            decryptor.Decrypt(inputStream, outputStream);
             Console.WriteLine("Decryption done.");
 
             Console.WriteLine();

@@ -41,14 +41,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Src\Api.Util\DsaElGamalKeyGeneratorUtil.cs" />
     <Compile Include="Src\Api.Util\RsaKeyGeneratorUtil.cs" />
-    <Compile Include="Src\Api\PgpAsymAlgo.cs" />
-    <Compile Include="Src\Api\PgpAsymKeyLength.cs" />
-    <Compile Include="Src\Api\PgpDecryptor.cs" />
-    <Compile Include="Src\Api.Util\PgpEncryptionUtil.cs" />
-    <Compile Include="Src\Api\PgpEncryptor.cs" />
+    <Compile Include="Src\Api\PublicKeyAlgorithm.cs" />
+    <Compile Include="Src\Api\PublicKeyLength.cs" />
+    <Compile Include="Src\Api\Decryptor.cs" />
+    <Compile Include="Src\Api.Util\PgpCryptoUtil.cs" />
+    <Compile Include="Src\Api\Encryptor.cs" />
     <Compile Include="Src\Api\PgpWrongPassphraseException.cs" />
     <Compile Include="Src\Api\PgpKeyPairGenerator.cs" />
-    <Compile Include="Src\Api\PgpPairKeyring.cs" />
+    <Compile Include="Src\Api\PgpKeyPairHolder.cs" />
     <Compile Include="Src\Api\PgpPublicKeyGetter.cs" />
     <Compile Include="Src\Api\Version.cs" />
   </ItemGroup>

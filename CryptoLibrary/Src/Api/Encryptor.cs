@@ -32,7 +32,7 @@ namespace Safester.CryptoLibrary.Api
     /// <summary>
     /// Allows to PGP encrypt a stream or a string using a List of PGP Public Keys (PgpPublicKey objects).
     /// </summary>
-    public class PgpEncryptor
+    public class Encryptor
     {
 
         private bool armor = false;
@@ -51,7 +51,7 @@ namespace Safester.CryptoLibrary.Api
         /// <summary>
         /// Default constructor. Encrypts with no armor and with integerity check.
         /// </summary>
-        public PgpEncryptor()
+        public Encryptor()
         {
 
         }
@@ -61,7 +61,7 @@ namespace Safester.CryptoLibrary.Api
         /// </summary>
         /// <param name="armor">if true, the reuslting file will be be Base64 armored.</param>
         /// <param name="withIntegrityCheck">If true an integrity check will be done</param>
-        public PgpEncryptor(bool armor, bool withIntegrityCheck)
+        public Encryptor(bool armor, bool withIntegrityCheck)
         {
             this.armor = armor;
             this.withIntegrityCheck = withIntegrityCheck;

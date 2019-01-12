@@ -47,8 +47,8 @@ namespace CryptoLibrary.Samples
             List<PgpPublicKey> encKeys = new List<PgpPublicKey>();
             encKeys.Add(PgpPublicKeyGetter.ReadPublicKey(this.publicKeyRing));
 
-            PgpEncryptor pgpEncryptor = new PgpEncryptor(armor, withIntegrityCheck);
-            string outText = pgpEncryptor.Encrypt(encKeys, inText);
+            Encryptor encryptor = new Encryptor(armor, withIntegrityCheck);
+            string outText = encryptor.Encrypt(encKeys, inText);
             Console.WriteLine("Encryption done.");
             return outText;
         }

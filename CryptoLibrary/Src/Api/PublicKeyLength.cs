@@ -19,9 +19,9 @@
 namespace Safester.CryptoLibrary.Api
 {
     /// <summary>
-    /// Available PGP asym algorithms key lengths.
+    /// Available PGP public key  algorithms key lengths.
     /// </summary>
-    public enum PgpAsymKeyLength
+    public enum PublicKeyLength
     {
         BITS_1024 = 1024,
         BITS_2048 = 2048,

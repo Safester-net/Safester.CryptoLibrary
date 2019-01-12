@@ -50,8 +50,8 @@ namespace CryptoLibrary.Samples
             Stream inputStream = File.OpenRead(inFile);
             Stream outputStream = File.OpenWrite(outFile);
 
-            PgpEncryptor pgpEncryptor = new PgpEncryptor(armor, withIntegrityCheck);
-            pgpEncryptor.Encrypt(encKeys, inputStream, outputStream);
+            Encryptor encryptor = new Encryptor(armor, withIntegrityCheck);
+            encryptor.Encrypt(encKeys, inputStream, outputStream);
             Console.WriteLine("Encryption done.");
         }
 

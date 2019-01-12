@@ -28,7 +28,8 @@ using System.Threading.Tasks;
 // 12/01/19 09:12 NDP: Clean key pair generation
 // 12/01/19 09:51 NDP: Clean all APIs
 // 12/01/19 11:03 NDP: Rewrite MainControler
-// 12/01/19 18:04 NDP: Private keyring and passephrase is passed to PgpDecryptor constructor
+// 12/01/19 18:04 NDP: Private keyring and passephrase is passed to Decryptor constructor
+// 12/01/19 19:48 NDP: Clean classes & method names
 
 namespace Safester.CryptoLibrary.Api
 {
@@ -45,7 +46,7 @@ namespace Safester.CryptoLibrary.Api
         /// <summary>
         /// Version number.
         /// </summary>
-        public static readonly String VERSION_NUMBER = "v1.0.0";
+        public static readonly String VERSION_NUMBER = "v1.0.1";
 
         /// <summary>
         /// Release date

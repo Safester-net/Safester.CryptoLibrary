@@ -63,7 +63,11 @@ namespace Safester.CryptoLibrary.Api.Util
 
         }
 
-        public static SecureRandom getSecureRandom()
+        /// <summary>
+        /// Builds a SecureRandom with seed filled in.
+        /// </summary>
+        /// <returns></returns>
+        public static SecureRandom GetSecureRandom()
         {
             SecureRandom secureRandom = SecureRandom.GetInstance("SHA1PRNG", false);
             byte[] seed = new byte[1024];

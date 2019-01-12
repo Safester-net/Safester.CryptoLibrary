@@ -30,7 +30,7 @@ namespace Safester.CryptoLibrary.Api
     /// <summary>
     /// Allows to PGP decrypt a stream or a string using a private/secretkey extracted from a keyring.
     /// </summary>
-    public class PgpDecryptor
+    public class Decryptor
     {
         /// <summary>
         /// If true, the message integrity check passed.
@@ -45,7 +45,7 @@ namespace Safester.CryptoLibrary.Api
         /// </summary>
         /// <param name="privateKeyring">the stream off the private keyring</param>
         /// <param name="passphrase">the passphrase to use to find the first corresponding private and secret key</param>
-        public PgpDecryptor(Stream privateKeyring, char[] passphrase)
+        public Decryptor(Stream privateKeyring, char[] passphrase)
         {
             if (privateKeyring == null)
             {
@@ -66,7 +66,7 @@ namespace Safester.CryptoLibrary.Api
         /// </summary>
         /// <param name="privateArmoredKeyring">the private keyring as a Base64 armored string</param>
         /// <param name="passphrase">the passphrase to use to find the first corresponding private and secret key</param>
-        public PgpDecryptor(String privateArmoredKeyring, char[] passphrase)
+        public Decryptor(String privateArmoredKeyring, char[] passphrase)
         {
             if (privateArmoredKeyring == null)
             {

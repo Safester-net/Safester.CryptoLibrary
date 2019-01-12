@@ -51,7 +51,7 @@ namespace Safester.CryptoLibrary.Src.Api.Util
             PgpKeyPair elgKeyPair = new PgpKeyPair(PublicKeyAlgorithmTag.ElGamalEncrypt, elgKp, DateTime.UtcNow);
 
             // Prepare a strong Secure Random with seed
-            SecureRandom secureRandom = PgpEncryptionUtil.getSecureRandom();
+            SecureRandom secureRandom = PgpEncryptionUtil.GetSecureRandom();
 
             PgpKeyRingGenerator keyRingGen = new PgpKeyRingGenerator(PgpSignature.PositiveCertification, dsaKeyPair,
                 identity, SymmetricKeyAlgorithmTag.Aes256, passPhrase, true, null, null, secureRandom);

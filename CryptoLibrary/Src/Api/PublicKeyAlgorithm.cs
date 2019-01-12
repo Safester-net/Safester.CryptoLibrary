@@ -19,9 +19,9 @@
 namespace Safester.CryptoLibrary.Api
 {
     /// <summary>
-    /// Available PGP asym algorithms
+    /// Available PGP public key algorithms
     /// </summary>
-    public enum  PgpAsymAlgo
+    public enum  PublicKeyAlgorithm
     {
         DSA_ELGAMAL = 0,
         RSA = 1,

@@ -60,7 +60,7 @@ namespace Safester.CryptoLibrary.Src.Api.Util
             }
 
             // Prepare a strong Secure Random with seed
-            SecureRandom secureRandom = PgpEncryptionUtil.getSecureRandom();
+            SecureRandom secureRandom = PgpEncryptionUtil.GetSecureRandom();
 
             PgpSecretKey secretKey = new PgpSecretKey(
                 PgpSignature.DefaultCertification,

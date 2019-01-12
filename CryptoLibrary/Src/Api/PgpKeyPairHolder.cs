@@ -23,7 +23,7 @@ namespace Safester.CryptoLibrary.Api
     /// <summary>
     /// Store for an armored PGP private/secreet keyring and and armored PGP public keyring
     /// </summary>
-    public class PgpPairKeyring
+    public class PgpKeyPairHolder
     {
         private string privateKeyRing = null;
         private string publicKeyRing = null;
@@ -43,7 +43,7 @@ namespace Safester.CryptoLibrary.Api
         /// </summary>
         /// <param name="privateKeyRing">A Private/Secret keyring which hold the generated private/secret key</param>
         /// <param name="publicKeyRing">A Public keyring which hold the generated public key</param>
-        public PgpPairKeyring(string privateKeyRing, string publicKeyRing)
+        public PgpKeyPairHolder(string privateKeyRing, string publicKeyRing)
         {
             if (privateKeyRing == null)
             {

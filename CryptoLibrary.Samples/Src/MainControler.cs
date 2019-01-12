@@ -38,8 +38,8 @@ namespace CryptoLibrary.Samples.Src
 
         public const string identity = "myemail@domain.com";
         public static string passphrase = null;
-        public static PgpAsymAlgo pgpAsymAlgo = PgpAsymAlgo.DSA_ELGAMAL;
-        public static PgpAsymKeyLength pgpAsymKeyLength = PgpAsymKeyLength.BITS_1024;
+        public static PublicKeyAlgorithm pgpAsymAlgo = PublicKeyAlgorithm.DSA_ELGAMAL;
+        public static PublicKeyLength pgpAsymKeyLength = PublicKeyLength.BITS_1024;
 
         public static void Main(string[] args)
         {
@@ -48,7 +48,7 @@ namespace CryptoLibrary.Samples.Src
             Console.WriteLine(DateTime.Now + " Generate key pair...");
             PgpKeyPairGeneratorSample pgpKeyPairGeneratorSample = new PgpKeyPairGeneratorSample();
             pgpKeyPairGeneratorSample.Generate(identity, passphrase, pgpAsymAlgo, pgpAsymKeyLength);
-            PgpPairKeyring pgpPairKeyring = pgpKeyPairGeneratorSample.PgpPairKeyring;
+            PgpKeyPairHolder pgpPairKeyring = pgpKeyPairGeneratorSample.PgpKeyPairHolder;
 
             Console.WriteLine(DateTime.Now + " File Encryption...");
             FileEncryptionSample fileEncryptionSample = new FileEncryptionSample(pgpPairKeyring.PublicKeyRing);
