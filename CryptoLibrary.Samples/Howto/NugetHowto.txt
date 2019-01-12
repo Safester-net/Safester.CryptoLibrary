@@ -1,2 +1,0 @@
-﻿nuget spec Safester.CryptoLibrary -Force
-nuget pack Safester.CryptoLibrary.csproj -Prop Configuration=Release

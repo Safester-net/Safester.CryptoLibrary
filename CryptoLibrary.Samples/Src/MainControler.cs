@@ -26,7 +26,6 @@ namespace CryptoLibrary.Samples.Src
 
         public static void Main(string[] args)
         {
-            //CreateDirectory(basePath);
             passphrase = File.ReadAllText(basePath + "\\password.txt");
 
             Console.WriteLine(DateTime.Now + " Generate key pair...");
@@ -62,9 +61,5 @@ namespace CryptoLibrary.Samples.Src
             TestSafesterKeysAndFiles.Test();
         }
 
-        private static void CreateDirectory(string basePath)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

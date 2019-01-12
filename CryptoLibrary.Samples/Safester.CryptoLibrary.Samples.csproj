@@ -58,14 +58,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Howto\NugetHowto.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\CryptoLibrary\Safester.CryptoLibrary.csproj">
       <Project>{4a7a63fe-d4e6-4956-9a49-74669ca47da4}</Project>
       <Name>Safester.CryptoLibrary</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="files\koala.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
