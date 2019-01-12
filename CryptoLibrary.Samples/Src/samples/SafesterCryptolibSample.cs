@@ -34,8 +34,9 @@ namespace Safester.CryptoLibrary.Samples.Src.samples
             string identity = "john@smith.com";
             char[] passphrase = "my_passphrase".ToCharArray();
 
-            PgpKeyPairGenerator pgpKeyPairGenerator = new PgpKeyPairGenerator(identity, passphrase, PublicKeyAlgorithm.RSA, PublicKeyLength.BITS_2048);
-            PgpKeyPairHolder pgpKeyPairHolder = pgpKeyPairGenerator.Generate();
+            PgpKeyPairGenerator generator = 
+                new PgpKeyPairGenerator(identity, passphrase, PublicKeyAlgorithm.RSA, PublicKeyLength.BITS_2048);
+            PgpKeyPairHolder pgpKeyPairHolder = generator.Generate();
 
             String privateKeyring = pgpKeyPairHolder.PrivateKeyRing;
             String publicKeyring = pgpKeyPairHolder.PublicKeyRing;
