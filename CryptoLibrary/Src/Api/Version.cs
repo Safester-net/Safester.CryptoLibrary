@@ -28,6 +28,7 @@ using System.Threading.Tasks;
 // 12/01/19 09:12 NDP: Clean key pair generation
 // 12/01/19 09:51 NDP: Clean all APIs
 // 12/01/19 11:03 NDP: Rewrite MainControler
+// 12/01/19 18:04 NDP: Private keyring and passephrase is passed to PgpDecryptor constructor
 
 namespace Safester.CryptoLibrary.Api
 {
@@ -36,8 +37,19 @@ namespace Safester.CryptoLibrary.Api
     /// </summary>
     public class Version
     {
+        /// <summary>
+        /// Product name
+        /// </summary>
         public static readonly String PRODUCT = "Safester OpenPGP Client SDK";
+
+        /// <summary>
+        /// Version number.
+        /// </summary>
         public static readonly String VERSION_NUMBER = "v1.0.0";
+
+        /// <summary>
+        /// Release date
+        /// </summary>
         public static readonly String DATE = "12-jan-2019";
     }
 }

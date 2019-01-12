@@ -27,6 +27,9 @@ using System.Threading.Tasks;
 
 namespace Safester.CryptoLibrary.Api
 {
+    /// <summary>
+    /// Allows to PGP decrypt a stream or a string using a private/secretkey extracted from a keyring.
+    /// </summary>
     public class PgpDecryptor
     {
         /// <summary>
@@ -34,19 +37,15 @@ namespace Safester.CryptoLibrary.Api
         /// </summary>
         public bool Verify { get; private set; }
 
+        private Stream privateKeyring = null;
+        private char[] passphrase = null;
+
         /// <summary>
-        /// Decrypts a input stream into an output stream. The first argument is the stream off the private keyring.
+        /// Constructor.
         /// </summary>
         /// <param name="privateKeyring">the stream off the private keyring</param>
-        /// <param name="passphrase">the passphrase to use to find the first corresponding private & secret key</param>
-        /// <param name="inputStream">The input stream to encrypt</param>
-        /// <param name="outputStream">The encrypted outout stream created by the method.</param>
-        /// 
-        public void Decrypt(
-            Stream privateKeyring,
-            char[] passphrase,
-            Stream inputStream,
-            Stream outputStream)
+        /// <param name="passphrase">the passphrase to use to find the first corresponding private and secret key</param>
+        public PgpDecryptor(Stream privateKeyring, char[] passphrase)
         {
             if (privateKeyring == null)
             {
@@ -57,6 +56,23 @@ namespace Safester.CryptoLibrary.Api
             {
                 throw new ArgumentNullException("passphrase can not be null!");
             }
+
+            this.privateKeyring = privateKeyring;
+            this.passphrase = passphrase;
+        }
+
+
+
+        /// <summary>
+        /// Decrypts a input stream into an output stream. The first argument is the stream off the private keyring.
+        /// </summary>
+        /// <param name="inputStream">The input stream to encrypt</param>
+        /// <param name="outputStream">The encrypted outout stream created by the method.</param>
+        /// 
+        public void Decrypt(
+            Stream inputStream,
+            Stream outputStream)
+        {
 
             if (inputStream == null)
             {
@@ -203,22 +219,12 @@ namespace Safester.CryptoLibrary.Api
         /// <summary>
         /// Decrypts a input stream into an output stream. The first argument is the stream off the private keyring.
         /// </summary>
-        /// <param name="privateKeyring">the stream off the private keyring.</param>
-        /// <param name="passphrase">the passphrase to use to find the first corresponding private & secret key</param>
         /// <param name="inText">The text to decrypt</param>
+        /// 
+        /// 
         /// <returns>The decrypted text</returns>
-        public string Decrypt(Stream privateKeyring, char[] passphrase, string inText)
+        public string Decrypt(string inText)
         {
-            if (privateKeyring == null)
-            {
-                throw new ArgumentNullException("privateKeyring input stream can not be null!");
-            }
-
-            if (passphrase == null)
-            {
-                throw new ArgumentNullException("passphrase can not be null!");
-            }
-
             if (inText == null)
             {
                 throw new ArgumentNullException("inText can not be null!");
@@ -228,7 +234,7 @@ namespace Safester.CryptoLibrary.Api
             MemoryStream inMemoryStream = new MemoryStream(bytes);
             MemoryStream outMemoryStream = new MemoryStream();
 
-            Decrypt(privateKeyring, passphrase, inMemoryStream, outMemoryStream);
+            Decrypt(inMemoryStream, outMemoryStream);
             string result = Encoding.UTF8.GetString(outMemoryStream.ToArray(), 0, (int)outMemoryStream.Length);
             return result;
         }

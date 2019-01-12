@@ -12,8 +12,21 @@ using System.Threading.Tasks;
 
 namespace Safester.CryptoLibrary.Src.Api.Util
 {
+    /// <summary>
+    /// Util class for RSA key pair generator.
+    /// </summary>
     public class RsaKeyGeneratorUtil
     {
+        /// <summary>
+        /// Final key pair creation
+        /// </summary>
+        /// <param name="secretOut"></param>
+        /// <param name="publicOut"></param>
+        /// <param name="publicKey"></param>
+        /// <param name="privateKey"></param>
+        /// <param name="identity"></param>
+        /// <param name="passphrase"></param>
+        /// <param name="armor"></param>
         public static void ExportKeyPair(
          Stream secretOut,
          Stream publicOut,

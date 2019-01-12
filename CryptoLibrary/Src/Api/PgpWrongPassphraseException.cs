@@ -22,7 +22,7 @@ using System;
 namespace Safester.CryptoLibrary.Api
 {
     /// <summary>
-    /// Exception thrown if a wrong passphrase is used for PGP decryption with a private & secret key.
+    /// Exception thrown if a wrong passphrase is used for PGP decryption with a private and secret key.
     /// </summary>
     public class PgpWrongPassphraseException : PgpException
     {

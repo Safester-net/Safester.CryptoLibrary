@@ -121,7 +121,7 @@ namespace Safester.CryptoLibrary.Api
         /// <summary>
         /// Generates the armored private and public keyrings. 
         /// </summary>
-        /// <returns>The PgpPairKeyring that contains arrmored private/secret keyring & armored public keyring </returns>
+        /// <returns>The PgpPairKeyring that contains arrmored private/secret keyring and armored public keyring </returns>
         public PgpPairKeyring Generate()
         {
             MemoryStream outSecret = new MemoryStream();

@@ -33,8 +33,8 @@ namespace CryptoLibrary.Samples
             byte[] bytes = Encoding.UTF8.GetBytes(privateKeyRing);
             MemoryStream memoryStreamKeyIn = new MemoryStream(bytes);
 
-            PgpDecryptor pgpDecryptor = new PgpDecryptor();
-            pgpDecryptor.Decrypt(memoryStreamKeyIn, passphrase, inputStream, outputStream);
+            PgpDecryptor pgpDecryptor = new PgpDecryptor(memoryStreamKeyIn, passphrase);
+            pgpDecryptor.Decrypt(inputStream, outputStream);
             Console.WriteLine("Decryption done.");
         }
 

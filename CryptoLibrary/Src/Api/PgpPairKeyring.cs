@@ -21,7 +21,7 @@ using System;
 namespace Safester.CryptoLibrary.Api
 {
     /// <summary>
-    /// Store for an armored PGP private/secreet keyring & and armored PGP public keyring
+    /// Store for an armored PGP private/secreet keyring and and armored PGP public keyring
     /// </summary>
     public class PgpPairKeyring
     {

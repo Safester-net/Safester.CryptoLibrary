@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Src\samples\FileDecryptionSample.cs" />
+    <Compile Include="Src\samples\SafesterCryptolibSample.cs" />
     <Compile Include="Src\samples\TextDecryptionSample.cs" />
     <Compile Include="Src\samples\TextEncryptionSample.cs" />
     <Compile Include="Src\samples\FileEncryptionSample.cs" />
