@@ -153,7 +153,7 @@ encryptor.Encrypt(encKeys, inputStream, outputStream);
 Console.WriteLine("Encryption done.");
 ```
 
-Note that the `streams` are always safely closed by `Encrypt`.
+Note that the two `stream` instances  are always safely closed by `Encrypt`.
 
 Decryption is straightforward using a `Decryptor`. We just pass the previous built 
 
@@ -171,7 +171,7 @@ decryptor.Decrypt(inputStream, outputStream);
 Console.WriteLine("Decryption integrity check status: " + decryptor.Verify);
 Console.WriteLine("Decryption done.");
 ```
-Note that the `streams` are always safely closed by `Decrypt`.
+Note that the two `stream` instances  are always safely closed by  `Decrypt`.
 
 ## Encrypting and Decrypting Texts
 
@@ -185,7 +185,7 @@ Encryptor encryptor = new Encryptor(armor, withIntegrityCheck);
 string outText = encryptor.Encrypt(encKeys, inText);
 Console.WriteLine("Encryption done.");
 ```
-The encrypted`outText` is always Base64 armored for future direct usage in decryption:
+The encrypted `outText` is always Base64 armored for future direct usage in decryption:
 
 ```pgp
 -----BEGIN PGP MESSAGE-----
