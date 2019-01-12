@@ -61,6 +61,29 @@ namespace Safester.CryptoLibrary.Api
             this.passphrase = passphrase;
         }
 
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="privateArmoredKeyring">the private keyring as a Base64 armored string</param>
+        /// <param name="passphrase">the passphrase to use to find the first corresponding private and secret key</param>
+        public PgpDecryptor(String privateArmoredKeyring, char[] passphrase)
+        {
+            if (privateArmoredKeyring == null)
+            {
+                throw new ArgumentNullException("privateArmoredKeyring input stream can not be null!");
+            }
+
+            if (passphrase == null)
+            {
+                throw new ArgumentNullException("passphrase can not be null!");
+            }
+
+            byte[] bytes = Encoding.UTF8.GetBytes(privateArmoredKeyring);
+            MemoryStream memoryStreamKeyIn = new MemoryStream(bytes);
+
+            this.privateKeyring = memoryStreamKeyIn;
+            this.passphrase = passphrase;
+        }
 
 
         /// <summary>
