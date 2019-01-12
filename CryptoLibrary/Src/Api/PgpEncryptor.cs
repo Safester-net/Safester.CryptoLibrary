@@ -39,7 +39,7 @@ namespace Safester.CryptoLibrary.Api
         private bool withIntegrityCheck = true;
 
         /// <summary>
-        /// if true resulating file will be be Base64 armored
+        /// if true resulting file will be be Base64 armored
         /// </summary>
         public bool Armor { get => armor; }
 
@@ -56,7 +56,6 @@ namespace Safester.CryptoLibrary.Api
 
         }
 
-        
         /// <summary>
         /// Constructor that allows to define if encryption is armored and integrity check done.
         /// </summary>
@@ -67,9 +66,6 @@ namespace Safester.CryptoLibrary.Api
             this.armor = armor;
             this.withIntegrityCheck = withIntegrityCheck;
         }
-
-
- 
 
         /// <summary>
         /// PGP Encrypts an input stream for a list of PgpPublicKey a stream.
@@ -140,13 +136,14 @@ namespace Safester.CryptoLibrary.Api
                 {
                     cOut.Dispose();
 
-                    if (Armor)
-                    {
-                        outputStream.Dispose();
-                    }
+                    //if (Armor)
+                    //{
+                    //    outputStream.Dispose();
+                    //}
+
+                    outputStream.Dispose();
+
                 }
-
-
             }
             catch (PgpException e)
             {

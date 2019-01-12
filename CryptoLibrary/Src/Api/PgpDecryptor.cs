@@ -190,7 +190,13 @@ namespace Safester.CryptoLibrary.Api
             finally
             {
                 inputStream.Dispose();
-                //outputStream.Dispose(); // NO: to be done by caller.
+
+                //Because stream mut remain open fro string decryption
+                if (outputStream.GetType() != typeof(MemoryStream))
+                {
+                    outputStream.Dispose(); // NO: to be done by caller.
+                }
+                    
             }
         }
 

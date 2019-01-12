@@ -12,7 +12,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Safester C# OpenPGP Library / SDK
 	</description>
-    <releaseNotes>First version
+    <releaseNotes>First Release
 	</releaseNotes>
     <copyright>Copyright 2019</copyright>
     <tags>OpenPGP PGP Email Encryption Email Decryption Cryptography</tags>

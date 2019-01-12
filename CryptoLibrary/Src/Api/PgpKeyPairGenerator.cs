@@ -59,10 +59,27 @@ namespace Safester.CryptoLibrary.Api
         /// <param name="pgpAsymKeyLength">PgpAsymKeyLength.BITS_1024, PgpAsymKeyLength.BITS_2048, PgpAsymKeyLength.BITS_3072,,</param>
         public PgpKeyPairGenerator(string identity, char[] passphrase, PgpAsymAlgo pgpAsymAlgo, PgpAsymKeyLength pgpAsymKeyLength) 
         {
+            if (identity == null)
+            {
+                throw new ArgumentNullException("identity can not be null!");
+            }
+
+            if (passphrase == null)
+            {
+                throw new ArgumentNullException("passphrase can not be null!");
+            }
+
+            if (pgpAsymAlgo == PgpAsymAlgo.DSA_ELGAMAL && pgpAsymKeyLength > PgpAsymKeyLength.BITS_1024 )
+            {
+                throw new InvalidParameterException("Key length must be <= 1024 bits with DSA/ELGAMAL algorithm.");
+            }
+
             this.identity = identity;
             this.passphrase = passphrase;
             this.pgpAsymAlgo = pgpAsymAlgo;
             this.pgpAsymKeyLength = pgpAsymKeyLength;
+
+
         }
 
         /// <summary>

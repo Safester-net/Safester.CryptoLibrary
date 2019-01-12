@@ -27,6 +27,7 @@ using System.Threading.Tasks;
 // 11/01/19 15:18 NDP: All key generation done
 // 12/01/19 09:12 NDP: Clean key pair generation
 // 12/01/19 09:51 NDP: Clean all APIs
+// 12/01/19 11:03 NDP: Rewrite MainControler
 
 namespace Safester.CryptoLibrary.Api
 {
