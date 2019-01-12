@@ -2,7 +2,7 @@
 
 ## Open PGP C# PCL Library
 
-## v1.0.2 - January 2019, 12
+## v1.0.3 - January 2019, 13
 
 <img src="https://www.safester.net/img/icon-64x64.png" alt="Safester Icon"/>
 
