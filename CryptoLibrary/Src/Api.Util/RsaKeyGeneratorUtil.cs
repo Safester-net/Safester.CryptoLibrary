@@ -28,6 +28,9 @@ namespace Safester.CryptoLibrary.Src.Api.Util
                 secretOut = new ArmoredOutputStream(secretOut);
             }
 
+            // Prepare a strong Secure Random with seed
+            SecureRandom secureRandom = PgpEncryptionUtil.getSecureRandom();
+
             PgpSecretKey secretKey = new PgpSecretKey(
                 PgpSignature.DefaultCertification,
                 PublicKeyAlgorithmTag.RsaGeneral,
@@ -39,7 +42,7 @@ namespace Safester.CryptoLibrary.Src.Api.Util
                 passphrase,
                 null,
                 null,
-                PgpEncryptionUtil.getSecureRandom()
+                secureRandom
                 );
 
             secretKey.Encode(secretOut);

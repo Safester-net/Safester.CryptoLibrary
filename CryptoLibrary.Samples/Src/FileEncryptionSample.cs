@@ -35,7 +35,7 @@ namespace Safester.CryptoLibrary.Samples
             DECRYPTION,
         }
 
-        public static void Main(string[] args)
+        public static void MainFileEncrytion()
         {
 
             TextEncryptionSample.EncryptAndDecryptText();

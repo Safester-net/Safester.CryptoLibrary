@@ -44,49 +44,48 @@ namespace Safester.CryptoLibrary.Api
     {
 
         /// Updatable values 
-        private PgpAsymAlgo pgpAsymAlgo = PgpAsymAlgo.DSA_ELGAMAL;
-        private PgpAsymKeyLength pgpAsymKeyLength = PgpAsymKeyLength.LENGTH_2048;
-
         private string identity = null;
         private char[] passphrase = null;
+        private PgpAsymAlgo pgpAsymAlgo = PgpAsymAlgo.DSA_ELGAMAL;
+        private PgpAsymKeyLength pgpAsymKeyLength = PgpAsymKeyLength.BITS_1024;
 
 
         /// <summary>
-        /// Constructor that will used defaults values for keyrings:
-        /// - DSA/Elgamal
-        /// - 2048 asym key size
-        /// - AES/256 for sym algo an key size (not updatable)
-        /// - Never expires (Not updatable)
-        /// - 
+        /// Constructor.
         /// </summary>
-        /// <param name="identity"></param>
-        /// <param name="passphrase"></param>
-        public PgpKeyPairGenerator(string identity, char[] passphrase)
+        /// <param name="identity">Email of key pair owner</param>
+        /// <param name="passphrase">Passphrase of key pair</param>
+        /// <param name="pgpAsymAlgo">PgpAsymAlgo.DSA_ELGAMAL or PgpAsymAlgo.RSA</param>
+        /// <param name="pgpAsymKeyLength">PgpAsymKeyLength.BITS_1024, PgpAsymKeyLength.BITS_2048, PgpAsymKeyLength.BITS_3072,,</param>
+        public PgpKeyPairGenerator(string identity, char[] passphrase, PgpAsymAlgo pgpAsymAlgo, PgpAsymKeyLength pgpAsymKeyLength) 
         {
             this.identity = identity;
             this.passphrase = passphrase;
+            this.pgpAsymAlgo = pgpAsymAlgo;
+            this.pgpAsymKeyLength = pgpAsymKeyLength;
         }
+
 
         /// <summary>
         /// Generates the armored private and public keyrings. 
         /// </summary>
         /// <returns>The PgpPairKeyring that contains arrmored private/secret keyring & armored public keyring </returns>
-        public PgpPairKeyring generate()
+        public PgpPairKeyring Generate()
         {
             PgpPairKeyring pgpPairKeyring = null;
             if (pgpAsymAlgo == PgpAsymAlgo.RSA)
             {
-                pgpPairKeyring = generateRsa();
+                pgpPairKeyring = GenerateRsa();
             }
             else
             {
-                pgpPairKeyring = generateElGamal();
+                pgpPairKeyring = GenerateElGamal();
             }
 
             return pgpPairKeyring;
         }
 
-        private PgpPairKeyring generateRsa()
+        private PgpPairKeyring GenerateRsa()
         {
             IAsymmetricCipherKeyPairGenerator kpg = GeneratorUtilities.GetKeyPairGenerator("RSA");
 
@@ -102,22 +101,23 @@ namespace Safester.CryptoLibrary.Api
             MemoryStream outPublic = new MemoryStream();
 
             RsaKeyGeneratorUtil.ExportKeyPair(outSecret, outPublic, kp.Public, kp.Private, identity, passphrase, true);
+
             string secretKeyRing = Encoding.UTF8.GetString(outSecret.ToArray(), 0, (int)outSecret.Length);
             string publicKeyRing = Encoding.UTF8.GetString(outPublic.ToArray(), 0, (int)outPublic.Length);
             PgpPairKeyring pgpPairKeyring = new PgpPairKeyring(secretKeyRing, publicKeyRing);
             return pgpPairKeyring;
         }
 
-        private PgpPairKeyring generateElGamal()
+        private PgpPairKeyring GenerateElGamal()
         {
             // Prepare a strong Secure Random with seed
-            // SecureRandom secureRandom = getSecureRandom();
+            SecureRandom secureRandom = PgpEncryptionUtil.getSecureRandom();
 
             IAsymmetricCipherKeyPairGenerator dsaKpg = GeneratorUtilities.GetKeyPairGenerator("DSA");
             DsaParametersGenerator pGen = new DsaParametersGenerator();
-            pGen.Init(1024, 80, new SecureRandom());
+            pGen.Init((int)pgpAsymKeyLength, 80, new SecureRandom());
             DsaParameters dsaParams = pGen.GenerateParameters();
-            DsaKeyGenerationParameters kgp = new DsaKeyGenerationParameters(new SecureRandom(), dsaParams);
+            DsaKeyGenerationParameters kgp = new DsaKeyGenerationParameters(secureRandom, dsaParams);
             dsaKpg.Init(kgp);
 
             //
@@ -125,14 +125,14 @@ namespace Safester.CryptoLibrary.Api
             // before it Generates the key.
             //
             AsymmetricCipherKeyPair dsaKp = dsaKpg.GenerateKeyPair();
-
             IAsymmetricCipherKeyPairGenerator elgKpg = GeneratorUtilities.GetKeyPairGenerator("ELGAMAL");
 
             Org.BouncyCastle.Math.BigInteger g = new Org.BouncyCastle.Math.BigInteger("153d5d6172adb43045b68ae8e1de1070b6137005686d29d3d73a7749199681ee5b212c9b96bfdcfa5b20cd5e3fd2044895d609cf9b410b7a0f12ca1cb9a428cc", 16);
             Org.BouncyCastle.Math.BigInteger p = new Org.BouncyCastle.Math.BigInteger("9494fec095f3b85ee286542b3836fc81a5dd0a0349b4c239dd38744d488cf8e31db8bcb7d33b41abb9e5a33cca9144b1cef332c94bf0573bf047a3aca98cdf3b", 16);
 
+            secureRandom = PgpEncryptionUtil.getSecureRandom();
             ElGamalParameters elParams = new ElGamalParameters(p, g);
-            ElGamalKeyGenerationParameters elKgp = new ElGamalKeyGenerationParameters(new SecureRandom(), elParams);
+            ElGamalKeyGenerationParameters elKgp = new ElGamalKeyGenerationParameters(secureRandom, elParams);
             elgKpg.Init(elKgp);
 
             //

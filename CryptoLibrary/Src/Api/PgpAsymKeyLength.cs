@@ -15,15 +15,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License. 
  */
+
 namespace Safester.CryptoLibrary.Api
 {
     /// <summary>
-    /// Available PGP asym algorithms key length.
+    /// Available PGP asym algorithms key lengths.
     /// </summary>
     public enum PgpAsymKeyLength
     {
-        LENGTH_2048 = 2048,
-        LENGTH_3096 = 3096,
-        LENGTH_4096 = 4096,
+        BITS_1024 = 1024,
+        BITS_2048 = 2048,
+        BITS_3072 = 3072,
+        BITS_4096 = 4096,
     }
 }

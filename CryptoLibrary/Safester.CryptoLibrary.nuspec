@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<package >
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Safester.CryptoLibrary</id>
     <version>1.0.0</version>
@@ -10,11 +10,9 @@
 	<projectUrl>https://github.com/kawansoft/Safester.CryptoLibrary</projectUrl>
 	<iconUrl>https://www.kawansoft.com/favicon.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>
-	Safester C# OpenPGP Library / SDK
+    <description>Safester C# OpenPGP Library / SDK
 	</description>
-    <releaseNotes>
-	First version
+    <releaseNotes>First version
 	</releaseNotes>
     <copyright>Copyright 2019</copyright>
     <tags>OpenPGP PGP Email Encryption Email Decryption Cryptography</tags>

@@ -44,7 +44,6 @@ namespace Safester.CryptoLibrary.Api.Util
 
             try
             {
-
                 PgpLiteralDataGenerator lData = new PgpLiteralDataGenerator();
                 Stream pOut = lData.Open(outputStream, fileType, fileName, DateTime.Now, buffer);
                 byte[] buf = new byte[buffer.Length];

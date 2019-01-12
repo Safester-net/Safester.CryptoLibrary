@@ -24,7 +24,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 // 10/01/19 21:21 NDP: All encryptions done
-// 11/01/19 15:186 NDP: All key generation done
+// 11/01/19 15:18 NDP: All key generation done
+// 12/01/19 09:12 NDP: Clean key pair generation
 
 namespace Safester.CryptoLibrary.Api
 {

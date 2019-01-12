@@ -2,6 +2,7 @@
 using Org.BouncyCastle.Bcpg.OpenPgp;
 using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Security;
+using Safester.CryptoLibrary.Api.Util;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,8 +32,11 @@ namespace Safester.CryptoLibrary.Src.Api.Util
             PgpKeyPair dsaKeyPair = new PgpKeyPair(PublicKeyAlgorithmTag.Dsa, dsaKp, DateTime.UtcNow);
             PgpKeyPair elgKeyPair = new PgpKeyPair(PublicKeyAlgorithmTag.ElGamalEncrypt, elgKp, DateTime.UtcNow);
 
+            // Prepare a strong Secure Random with seed
+            SecureRandom secureRandom = PgpEncryptionUtil.getSecureRandom();
+
             PgpKeyRingGenerator keyRingGen = new PgpKeyRingGenerator(PgpSignature.PositiveCertification, dsaKeyPair,
-                identity, SymmetricKeyAlgorithmTag.Aes256, passPhrase, true, null, null, new SecureRandom());
+                identity, SymmetricKeyAlgorithmTag.Aes256, passPhrase, true, null, null, secureRandom);
 
             keyRingGen.AddSubKey(elgKeyPair);
 

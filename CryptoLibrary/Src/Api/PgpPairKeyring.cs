@@ -26,14 +26,21 @@ namespace Safester.CryptoLibrary.Api
         private string privateKeyRing = null;
         private string publicKeyRing = null;
 
+        /// <summary>
+        /// The created Private/Secret keyring which holds the generated private/secret key
+        /// </summary>
         public string PrivateKeyRing { get => privateKeyRing; }
+
+        /// <summary>
+        /// The created public keyring which hold the generated public key
+        /// </summary>
         public string PublicKeyRing { get => publicKeyRing; }
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        /// <param name="privateKeyRing"></param>
-        /// <param name="publicKeyRing"></param>
+        /// <param name="privateKeyRing">A Private/Secret keyring which hold the generated private/secret key</param>
+        /// <param name="publicKeyRing">A Public keyring which hold the generated public key</param>
         public PgpPairKeyring(string privateKeyRing, string publicKeyRing)
         {
             this.privateKeyRing = privateKeyRing;

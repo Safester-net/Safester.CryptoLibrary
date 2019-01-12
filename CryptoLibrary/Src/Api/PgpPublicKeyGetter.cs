@@ -34,7 +34,7 @@ namespace Safester.CryptoLibrary.Api
         /// <summary>
         /// Creates an OpenPGP PgpPublicKey using a string that contains a keyring.
         /// </summary>
-        /// <param name="keyring">the keyring string that contains the PgpPublicKey</param>
+        /// <param name="keyring">the armored keyring string that contains the PgpPublicKey</param>
         /// <returns>A PgpPublicKey</returns>
         public static PgpPublicKey ReadPublicKey(
             String keyring)
