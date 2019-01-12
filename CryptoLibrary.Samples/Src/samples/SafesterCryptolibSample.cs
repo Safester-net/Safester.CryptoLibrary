@@ -31,7 +31,10 @@ namespace Safester.CryptoLibrary.Samples.Src.samples
     {
         public static void DoIt()
         {
-            PgpKeyPairGenerator pgpKeyPairGenerator = new PgpKeyPairGenerator("john@smith.com", "my_passphrase".ToCharArray(), PublicKeyAlgorithm.DSA_ELGAMAL, PublicKeyLength.BITS_1024);
+            string identity = "john@smith.com";
+            char[] passphrase = "my_passphrase".ToCharArray();
+
+            PgpKeyPairGenerator pgpKeyPairGenerator = new PgpKeyPairGenerator(identity, passphrase, PublicKeyAlgorithm.RSA, PublicKeyLength.BITS_2048);
             PgpKeyPairHolder pgpKeyPairHolder = pgpKeyPairGenerator.Generate();
 
             String privateKeyring = pgpKeyPairHolder.PrivateKeyRing;
@@ -40,32 +43,46 @@ namespace Safester.CryptoLibrary.Samples.Src.samples
             Console.WriteLine(privateKeyring);
             Console.WriteLine(publicKeyring);
 
+            PgpPublicKey pgpPublicKey = PgpPublicKeyGetter.ReadPublicKey(publicKeyring);
             List<PgpPublicKey> encKeys = new List<PgpPublicKey>();
-            encKeys.Add(PgpPublicKeyGetter.ReadPublicKey(publicKeyring));
+            encKeys.Add(pgpPublicKey);
 
-            string basePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\safester_samples";
-            string inFile = basePath + "\\koala.jpg";
-            string outFile = basePath + "\\koala.jpg.pgp";
+            string rootDir = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            string inFile = rootDir + "\\safester_samples\\koala.jpg";
+            string outFile = rootDir + "\\safester_samples\\koala.jpg.pgp";
 
+            // stream is universal, but System.IO.File is Windows only 
+            // and can not be used in our Safester.CryptoLibrary PCL methods:
             Stream inputStream = File.OpenRead(inFile);
             Stream outputStream = File.OpenWrite(outFile);
 
-            Encryptor encryptor = new Encryptor(false, true);
+            bool armor = false;
+            bool withIntegrityCheck = true;
+
+            Encryptor encryptor = new Encryptor(armor, withIntegrityCheck);
             encryptor.Encrypt(encKeys, inputStream, outputStream);
             Console.WriteLine("Encryption done.");
 
-            string inFileEncrypted = outFile;
-            string outFileDecrypted = basePath + "\\koala_2.jpg";
+            string inFileEncrypted = rootDir + "\\safester_samples\\koala.jpg.pgp"; ;
+            string outFileDecrypted = rootDir + "\\safester_samples\\koala_2.jpg";
 
             inputStream = File.OpenRead(inFileEncrypted);
             outputStream = File.OpenWrite(outFileDecrypted);
 
-            byte[] bytes = Encoding.UTF8.GetBytes(privateKeyring);
-            MemoryStream memoryStreamKeyIn = new MemoryStream(bytes);
-
-            Decryptor decryptor = new Decryptor(memoryStreamKeyIn, "my_passphrase".ToCharArray());
+            Decryptor decryptor = new Decryptor(privateKeyring, passphrase);
             decryptor.Decrypt(inputStream, outputStream);
+            Console.WriteLine("Decryption integrity check status: " + decryptor.Verify);
             Console.WriteLine("Decryption done.");
+
+            String inText = "For a long time I would go to bed early.";
+            encryptor = new Encryptor(armor, withIntegrityCheck);
+            string outText = encryptor.Encrypt(encKeys, inText);
+            Console.WriteLine("Encryption done.");
+            Console.WriteLine(outText);
+
+            decryptor = new Decryptor(privateKeyring, passphrase);
+            string decryptText = decryptor.Decrypt(outText);
+            Console.WriteLine(decryptText);
 
             Console.WriteLine();
             Console.WriteLine("Press enter to close....");
