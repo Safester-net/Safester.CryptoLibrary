@@ -30,7 +30,8 @@ using System.Threading.Tasks;
 // 12/01/19 11:03 NDP: Rewrite MainControler
 // 12/01/19 18:04 NDP: Private keyring and passephrase is passed to Decryptor constructor
 // 12/01/19 19:48 NDP: Clean classes & method names
-// 12/01/19 20:48 NDP: Rename classes & method names
+// 12/01/19 19:48 NDP: Rename classes & method names
+// 12/01/19 20:18 NDP: Comments & Regenerate Nuget 
 
 namespace Safester.CryptoLibrary.Api
 {
@@ -47,7 +48,7 @@ namespace Safester.CryptoLibrary.Api
         /// <summary>
         /// Version number.
         /// </summary>
-        public static readonly String VERSION_NUMBER = "v1.0.1";
+        public static readonly String VERSION_NUMBER = "v1.0.2";
 
         /// <summary>
         /// Release date
