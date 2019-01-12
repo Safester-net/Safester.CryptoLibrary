@@ -45,7 +45,7 @@
     <Compile Include="Src\Api\PgpDecryptor.cs" />
     <Compile Include="Src\Api.Util\PgpEncryptionUtil.cs" />
     <Compile Include="Src\Api\PgpEncryptor.cs" />
-    <Compile Include="Src\Api\PgpExceptionWrongPassphrase.cs" />
+    <Compile Include="Src\Api\PgpWrongPassphraseException.cs" />
     <Compile Include="Src\Api\PgpKeyPairGenerator.cs" />
     <Compile Include="Src\Api\PgpPairKeyring.cs" />
     <Compile Include="Src\Api\PgpPublicKeyGetter.cs" />

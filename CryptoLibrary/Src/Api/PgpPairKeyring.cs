@@ -16,6 +16,8 @@
  * limitations under the License. 
  */
 
+using System;
+
 namespace Safester.CryptoLibrary.Api
 {
     /// <summary>
@@ -43,6 +45,16 @@ namespace Safester.CryptoLibrary.Api
         /// <param name="publicKeyRing">A Public keyring which hold the generated public key</param>
         public PgpPairKeyring(string privateKeyRing, string publicKeyRing)
         {
+            if (privateKeyRing == null)
+            {
+                throw new ArgumentNullException("privateKeyRing can not be null!");
+            }
+
+            if (publicKeyRing == null)
+            {
+                throw new ArgumentNullException("publicKeyRing can not be null!");
+            }
+
             this.privateKeyRing = privateKeyRing;
             this.publicKeyRing = publicKeyRing;
         }

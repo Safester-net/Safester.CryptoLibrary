@@ -50,22 +50,22 @@ namespace Safester.CryptoLibrary.Api
         {
             if (privateKeyring == null)
             {
-                throw new ArgumentNullException("privateKeyring input stream is null!");
+                throw new ArgumentNullException("privateKeyring input stream can not be null!");
             }
 
             if (passphrase == null)
             {
-                throw new ArgumentNullException("passphrase is null!");
+                throw new ArgumentNullException("passphrase can not be null!");
             }
 
             if (inputStream == null)
             {
-                throw new ArgumentNullException("inputStream is null!");
+                throw new ArgumentNullException("inputStream can not be null!");
             }
 
             if (outputStream == null)
             {
-                throw new ArgumentNullException("outputStream is null!");
+                throw new ArgumentNullException("outputStream can not be null!");
             }
 
             inputStream = PgpUtilities.GetDecoderStream(inputStream);
@@ -182,7 +182,7 @@ namespace Safester.CryptoLibrary.Api
 
                 if (e.Message.Contains("Checksum mismatch at 0 of 20"))
                 {
-                    throw new PgpExceptionWrongPassphrase("Wrong passphrase. Can not decrypt.");
+                    throw new PgpWrongPassphraseException("Wrong passphrase. Can not decrypt.");
                 }
 
                 throw e;
@@ -199,10 +199,25 @@ namespace Safester.CryptoLibrary.Api
         /// </summary>
         /// <param name="privateKeyring">the stream off the private keyring.</param>
         /// <param name="passphrase">the passphrase to use to find the first corresponding private & secret key</param>
-        /// <param name="inText">The text ro decrypt</param>
+        /// <param name="inText">The text to decrypt</param>
         /// <returns>The decrypted text</returns>
         public string Decrypt(Stream privateKeyring, char[] passphrase, string inText)
         {
+            if (privateKeyring == null)
+            {
+                throw new ArgumentNullException("privateKeyring input stream can not be null!");
+            }
+
+            if (passphrase == null)
+            {
+                throw new ArgumentNullException("passphrase can not be null!");
+            }
+
+            if (inText == null)
+            {
+                throw new ArgumentNullException("inText can not be null!");
+            }
+
             byte[] bytes = Encoding.UTF8.GetBytes(inText);
             MemoryStream inMemoryStream = new MemoryStream(bytes);
             MemoryStream outMemoryStream = new MemoryStream();

@@ -69,26 +69,7 @@ namespace Safester.CryptoLibrary.Api
         }
 
 
-        /// <summary>
-        /// PGP Encrypts a text that will be armored.
-        /// </summary>
-        /// <param name="pgpPublicKeys"></param>
-        /// <param name="inText"></param>
-        /// <returns>the encrypted text (will always be armored always armored)</returns>
-        public string Encrypt(List<PgpPublicKey> pgpPublicKeys, string inText)
-        {
-            byte[] bytes = Encoding.UTF8.GetBytes(inText);
-            MemoryStream inMemoryStream = new MemoryStream(bytes);
-            MemoryStream outMemoryStream = new MemoryStream();
-
-            bool prevArmor = this.Armor;
-            this.armor = true;
-            Encrypt(pgpPublicKeys, inMemoryStream, outMemoryStream);
-            string result = Encoding.UTF8.GetString(outMemoryStream.ToArray(), 0, (int)outMemoryStream.Length);
-            this.armor = prevArmor;
-            return result;
-
-        }
+ 
 
         /// <summary>
         /// PGP Encrypts an input stream for a list of PgpPublicKey a stream.
@@ -104,7 +85,7 @@ namespace Safester.CryptoLibrary.Api
 
             if (pgpPublicKeys == null)
             {
-                throw new ArgumentNullException("pgpPublicKeys List is null!"); 
+                throw new ArgumentNullException("pgpPublicKeys List can not be null!"); 
             }
 
             if (pgpPublicKeys.Count == 0)
@@ -114,12 +95,12 @@ namespace Safester.CryptoLibrary.Api
 
             if (inputStream == null)
             {
-                throw new ArgumentNullException("inputStream is null!");
+                throw new ArgumentNullException("inputStream can not be null!");
             }
 
             if (outputStream == null)
             {
-                throw new ArgumentNullException("outputStream is null!");
+                throw new ArgumentNullException("outputStream can not be null!");
             }
 
             if (Armor)
@@ -184,6 +165,40 @@ namespace Safester.CryptoLibrary.Api
             }
         }
 
+        /// <summary>
+        /// PGP Encrypts a text that will be armored.
+        /// </summary>
+        /// <param name="pgpPublicKeys"></param>
+        /// <param name="inText"></param>
+        /// <returns>the encrypted text (will always be armored always armored)</returns>
+        public string Encrypt(List<PgpPublicKey> pgpPublicKeys, string inText)
+        {
+            if (pgpPublicKeys == null)
+            {
+                throw new ArgumentNullException("pgpPublicKeys List can not be null!");
+            }
 
+            if (pgpPublicKeys.Count == 0)
+            {
+                throw new ArgumentException("pgpPublicKeys List does not contain any PgpPublicKey!");
+            }
+
+            if (inText == null)
+            {
+                throw new ArgumentException("inText can not be null!");
+            }
+
+            byte[] bytes = Encoding.UTF8.GetBytes(inText);
+            MemoryStream inMemoryStream = new MemoryStream(bytes);
+            MemoryStream outMemoryStream = new MemoryStream();
+
+            bool prevArmor = this.Armor;
+            this.armor = true;
+            Encrypt(pgpPublicKeys, inMemoryStream, outMemoryStream);
+            string result = Encoding.UTF8.GetString(outMemoryStream.ToArray(), 0, (int)outMemoryStream.Length);
+            this.armor = prevArmor;
+            return result;
+
+        }
     }
 }

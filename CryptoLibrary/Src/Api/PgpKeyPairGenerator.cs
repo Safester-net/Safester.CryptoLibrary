@@ -43,7 +43,7 @@ namespace Safester.CryptoLibrary.Api
     public class PgpKeyPairGenerator
     {
 
-        /// Updatable values 
+        /// Member values 
         private string identity = null;
         private char[] passphrase = null;
         private PgpAsymAlgo pgpAsymAlgo = PgpAsymAlgo.DSA_ELGAMAL;
@@ -65,6 +65,41 @@ namespace Safester.CryptoLibrary.Api
             this.pgpAsymKeyLength = pgpAsymKeyLength;
         }
 
+        /// <summary>
+        /// Generates the key pair on keyring on output streams. Streams are closed my method.
+        /// </summary>
+        /// <param name="outSecret">the private/secret key keyring output stream</param>
+        /// <param name="outPublic">the public key keyring output stream</param>
+        public void Generate(Stream outSecret, Stream outPublic)
+        {
+            if (outSecret == null)
+            {
+                throw new ArgumentNullException("outSecret can not be null!");
+            }
+
+            if (outPublic == null)
+            {
+                throw new ArgumentNullException("outPublic can not be null!");
+            }
+
+            try
+            {
+                if (pgpAsymAlgo == PgpAsymAlgo.RSA)
+                {
+                    GenerateRsa(outSecret, outPublic);
+                }
+                else
+                {
+                    GenerateElGamal(outSecret, outPublic);
+                }
+            }
+            finally
+            {
+                outSecret.Dispose();
+                outPublic.Dispose();
+            }
+        }
+
 
         /// <summary>
         /// Generates the armored private and public keyrings. 
@@ -72,20 +107,25 @@ namespace Safester.CryptoLibrary.Api
         /// <returns>The PgpPairKeyring that contains arrmored private/secret keyring & armored public keyring </returns>
         public PgpPairKeyring Generate()
         {
-            PgpPairKeyring pgpPairKeyring = null;
+            MemoryStream outSecret = new MemoryStream();
+            MemoryStream outPublic = new MemoryStream();
+
             if (pgpAsymAlgo == PgpAsymAlgo.RSA)
             {
-                pgpPairKeyring = GenerateRsa();
+                GenerateRsa(outSecret, outPublic);
             }
             else
             {
-                pgpPairKeyring = GenerateElGamal();
+                GenerateElGamal(outSecret, outPublic);
             }
 
+            string secretKeyRing = Encoding.UTF8.GetString(outSecret.ToArray(), 0, (int)outSecret.Length);
+            string publicKeyRing = Encoding.UTF8.GetString(outPublic.ToArray(), 0, (int)outPublic.Length);
+            PgpPairKeyring pgpPairKeyring = new PgpPairKeyring(secretKeyRing, publicKeyRing);
             return pgpPairKeyring;
         }
 
-        private PgpPairKeyring GenerateRsa()
+        private void GenerateRsa(Stream outSecret, Stream outPublic)
         {
             IAsymmetricCipherKeyPairGenerator kpg = GeneratorUtilities.GetKeyPairGenerator("RSA");
 
@@ -96,19 +136,10 @@ namespace Safester.CryptoLibrary.Api
                 Org.BouncyCastle.Math.BigInteger.ValueOf(0x10001), secureRandom, (int) pgpAsymKeyLength, 25));
 
             AsymmetricCipherKeyPair kp = kpg.GenerateKeyPair();
-
-            MemoryStream outSecret = new MemoryStream();
-            MemoryStream outPublic = new MemoryStream();
-
             RsaKeyGeneratorUtil.ExportKeyPair(outSecret, outPublic, kp.Public, kp.Private, identity, passphrase, true);
-
-            string secretKeyRing = Encoding.UTF8.GetString(outSecret.ToArray(), 0, (int)outSecret.Length);
-            string publicKeyRing = Encoding.UTF8.GetString(outPublic.ToArray(), 0, (int)outPublic.Length);
-            PgpPairKeyring pgpPairKeyring = new PgpPairKeyring(secretKeyRing, publicKeyRing);
-            return pgpPairKeyring;
         }
 
-        private PgpPairKeyring GenerateElGamal()
+        private void GenerateElGamal(Stream outSecret, Stream outPublic)
         {
             // Prepare a strong Secure Random with seed
             SecureRandom secureRandom = PgpEncryptionUtil.getSecureRandom();
@@ -139,19 +170,8 @@ namespace Safester.CryptoLibrary.Api
             // this is quicker because we are using preGenerated parameters.
             //
             AsymmetricCipherKeyPair elgKp = elgKpg.GenerateKeyPair();
-
-            MemoryStream outSecret = new MemoryStream();
-            MemoryStream outPublic = new MemoryStream();
-
             DsaElGamalKeyGeneratorUtil.ExportKeyPair(outSecret, outPublic, dsaKp, elgKp, identity, passphrase, true);
-
-            string secretKeyRing = Encoding.UTF8.GetString(outSecret.ToArray(), 0, (int)outSecret.Length);
-            string publicKeyRing = Encoding.UTF8.GetString(outPublic.ToArray(), 0, (int)outPublic.Length);
-            PgpPairKeyring pgpPairKeyring = new PgpPairKeyring(secretKeyRing, publicKeyRing);
-            return pgpPairKeyring;
-
         }
-
 
     }
 }

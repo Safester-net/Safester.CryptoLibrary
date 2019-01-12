@@ -39,6 +39,11 @@ namespace Safester.CryptoLibrary.Api
         public static PgpPublicKey ReadPublicKey(
             String keyring)
         {
+            if (keyring == null)
+            {
+                throw new ArgumentNullException("keyring can not be null!");
+            }
+
             byte[] bytes = Encoding.UTF8.GetBytes(keyring);
             MemoryStream memoryStream = new MemoryStream(bytes);
             return ReadPublicKey(memoryStream);
@@ -53,7 +58,7 @@ namespace Safester.CryptoLibrary.Api
         {
             if (inputStream == null)
             {
-                throw new ArgumentNullException("inputStream is null!");
+                throw new ArgumentNullException("inputStream can not be null!");
             }
 
             try

@@ -26,6 +26,7 @@ using System.Threading.Tasks;
 // 10/01/19 21:21 NDP: All encryptions done
 // 11/01/19 15:18 NDP: All key generation done
 // 12/01/19 09:12 NDP: Clean key pair generation
+// 12/01/19 09:51 NDP: Clean all APIs
 
 namespace Safester.CryptoLibrary.Api
 {
@@ -36,6 +37,6 @@ namespace Safester.CryptoLibrary.Api
     {
         public static readonly String PRODUCT = "Safester OpenPGP Client SDK";
         public static readonly String VERSION_NUMBER = "v1.0.0";
-        public static readonly String DATE = "11-jan-2019";
+        public static readonly String DATE = "12-jan-2019";
     }
 }

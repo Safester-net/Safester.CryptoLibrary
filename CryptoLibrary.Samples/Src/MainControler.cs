@@ -9,7 +9,7 @@ namespace CryptoLibrary.Samples.Src
 {
     public class MainControler
     {
-        static int classToRun = 2;
+        static int classToRun = 1;
 
         public static void Main(string[] args)
         {
@@ -17,7 +17,7 @@ namespace CryptoLibrary.Samples.Src
             {
                 FileEncryptionSample.MainFileEncrytion();
             }
-            else if (classToRun == 2) { 
+            else if (classToRun == 2) {
 
                 PgpKeyPairGeneratorSample pgpKeyPairGeneratorSample = new PgpKeyPairGeneratorSample();
                 pgpKeyPairGeneratorSample.Generate();
