@@ -137,7 +137,7 @@ encKeys.Add(pgpPublicKey);
 
 We define if we want to Base64 armor the encrypted file and if the file integrity will be checked during decryption and then encrypt the file. 
 
-We will use an `Encryptor`and pass to `Encrypt` method the `List` of `PgpPublicKey` and the two `stream` instances. And because we use a PCL that works on many environments, crypto operations on files are done passing read and write `stream` instances to the library classes (instead of `File` descriptors that are implementation specific).
+We will use an `Encryptor` and pass to `Encrypt` method the `List` of `PgpPublicKey` and the two `stream` instances. And because we use a PCL that works on many environments, crypto operations on files are done passing read and write `stream` instances to the library classes (instead of `File` descriptors that are implementation specific).
 
 ```c#
 // stream is universal, but System.IO.File is Windows only 
