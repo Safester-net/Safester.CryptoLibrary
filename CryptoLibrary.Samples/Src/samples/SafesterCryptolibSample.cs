@@ -87,6 +87,12 @@ namespace Safester.CryptoLibrary.Samples.Src.samples
             string decryptText = decryptor.Decrypt(outText);
             Console.WriteLine(decryptText);
 
+            decryptText = decryptor.Decrypt(outText);
+            Console.WriteLine(decryptText);
+
+            decryptText = decryptor.Decrypt(outText);
+            Console.WriteLine(decryptText);
+
             Console.WriteLine();
             Console.WriteLine("Press enter to close....");
             Console.ReadLine();

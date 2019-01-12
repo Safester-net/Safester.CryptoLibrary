@@ -48,10 +48,7 @@ namespace CryptoLibrary.Samples
             Stream inputStream = File.OpenRead(inFile);
             Stream outputStream = File.OpenWrite(outFile);
 
-            byte[] bytes = Encoding.UTF8.GetBytes(privateKeyRing);
-            MemoryStream memoryStreamKeyIn = new MemoryStream(bytes);
-
-            Decryptor decryptor = new Decryptor(memoryStreamKeyIn, passphrase);
+            Decryptor decryptor = new Decryptor(privateKeyRing, passphrase);
             decryptor.Decrypt(inputStream, outputStream);
             Console.WriteLine("Decryption done.");
         }

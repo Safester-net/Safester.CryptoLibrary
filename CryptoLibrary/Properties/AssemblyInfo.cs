@@ -10,9 +10,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Safester C# OpenPGp Library")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("KawanSoft")]
-[assembly: AssemblyProduct("CryptoLibrary")]
+[assembly: AssemblyProduct("Safester CryptoLibrary")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("Safester")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en-US")]
 
@@ -26,5 +26,5 @@ using System.Runtime.InteropServices;
 // Vous pouvez spécifier toutes les valeurs ou indiquer les numéros de build et de révision par défaut
 // en utilisant '*', comme indiqué ci-dessous :
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.2.0")]
-[assembly: AssemblyFileVersion("1.0.2.0")]
+[assembly: AssemblyVersion("1.0.3.0")]
+[assembly: AssemblyFileVersion("1.0.3.0")]

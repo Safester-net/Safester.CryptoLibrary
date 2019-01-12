@@ -37,29 +37,8 @@ namespace Safester.CryptoLibrary.Api
         /// </summary>
         public bool Verify { get; private set; }
 
-        private Stream privateKeyring = null;
+        private string privateArmoredKeyring = null;
         private char[] passphrase = null;
-
-        /// <summary>
-        /// Constructor.
-        /// </summary>
-        /// <param name="privateKeyring">the stream off the private keyring</param>
-        /// <param name="passphrase">the passphrase to use to find the first corresponding private and secret key</param>
-        public Decryptor(Stream privateKeyring, char[] passphrase)
-        {
-            if (privateKeyring == null)
-            {
-                throw new ArgumentNullException("privateKeyring input stream can not be null!");
-            }
-
-            if (passphrase == null)
-            {
-                throw new ArgumentNullException("passphrase can not be null!");
-            }
-
-            this.privateKeyring = privateKeyring;
-            this.passphrase = passphrase;
-        }
 
         /// <summary>
         /// Constructor.
@@ -78,10 +57,7 @@ namespace Safester.CryptoLibrary.Api
                 throw new ArgumentNullException("passphrase can not be null!");
             }
 
-            byte[] bytes = Encoding.UTF8.GetBytes(privateArmoredKeyring);
-            MemoryStream memoryStreamKeyIn = new MemoryStream(bytes);
-
-            this.privateKeyring = memoryStreamKeyIn;
+            this.privateArmoredKeyring = privateArmoredKeyring;
             this.passphrase = passphrase;
         }
 
@@ -96,6 +72,8 @@ namespace Safester.CryptoLibrary.Api
             Stream inputStream,
             Stream outputStream)
         {
+            byte[] bytes = Encoding.UTF8.GetBytes(privateArmoredKeyring);
+            MemoryStream privateKeyring = new MemoryStream(bytes);
 
             if (inputStream == null)
             {

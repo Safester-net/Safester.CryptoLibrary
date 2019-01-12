@@ -43,11 +43,7 @@ namespace CryptoLibrary.Samples
 
         public string Decrypt(string inText)
         {
-            //Console.WriteLine("Decrypting " + inText + " using string keyring.");
-            byte[] bytes = Encoding.UTF8.GetBytes(privateKeyRing);
-            MemoryStream memoryStreamKeyIn = new MemoryStream(bytes);
-
-            Decryptor decryptor = new Decryptor(memoryStreamKeyIn, passphrase);
+            Decryptor decryptor = new Decryptor(privateKeyRing, passphrase);
             string outText = decryptor.Decrypt(inText);
             Console.WriteLine("Decryption done.");
             return outText;
