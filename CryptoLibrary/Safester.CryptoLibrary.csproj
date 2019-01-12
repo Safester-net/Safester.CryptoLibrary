@@ -51,5 +51,8 @@
     <Compile Include="Src\Api\PgpPublicKeyGetter.cs" />
     <Compile Include="Src\Api\Version.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Howto\NugetHowto.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>
