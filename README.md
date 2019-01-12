@@ -178,7 +178,9 @@ Note that the `streams` are always safely closed by `Decrypt`.
 `Encryptor` and `Decryptor` support string encryption:
 
 ```C#
-String inText = "For a long time I would go to bed early.";
+String inText = "For a long time I would go to bed early. Sometimes, " +
+    "the candle barely out, my eyes close so quickly that I did not have " +
+    "time to tell myself \"I’m falling asleep.\"";
 Encryptor encryptor = new Encryptor(armor, withIntegrityCheck);
 string outText = encryptor.Encrypt(encKeys, inText);
 Console.WriteLine("Encryption done.");
