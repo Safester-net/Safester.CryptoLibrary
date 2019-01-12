@@ -50,8 +50,7 @@ Key Pair generation is done with the `PgpKeyPairGenerator`class:
 string identity = "john@smith.com";
 char [] passphrase = "my_passphrase".ToCharArray();
 
-PgpKeyPairGenerator pgpKeyPairGenerator = 
-    new PgpKeyPairGenerator(identity, passphrase, PublicKeyAlgorithm.DSA_ELGAMAL, PublicKeyLength.BITS_1024);
+PgpKeyPairGenerator pgpKeyPairGenerator = new PgpKeyPairGenerator(identity, passphrase, PublicKeyAlgorithm.RSA, PublicKeyLength.BITS_2048);
 ```
 
 It is then possible to retrieve the Base64 armored PGP keyrings for crypto operations:
