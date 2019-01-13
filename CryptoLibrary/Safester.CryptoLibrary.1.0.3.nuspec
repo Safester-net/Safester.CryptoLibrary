@@ -10,7 +10,7 @@
     <licenseUrl>https://github.com/kawansoft/Safester.CryptoLibrary/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/kawansoft/Safester.CryptoLibrary</projectUrl>
     <iconUrl>https://www.safester.net/img/icon-64x64.png</iconUrl>
-    <description>Safester C# OpenPGp Library</description>
+    <description>Safester C# OpenPGP Library</description>
     <copyright>Copyright ©  2019</copyright>
     <dependencies>
       <group targetFramework=".NETPortable4.5-Profile7">

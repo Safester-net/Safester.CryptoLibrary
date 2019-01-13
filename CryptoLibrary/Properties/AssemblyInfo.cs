@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
 [assembly: AssemblyTitle("Safester.CryptoLibrary")]
-[assembly: AssemblyDescription("Safester C# OpenPGp Library")]
+[assembly: AssemblyDescription("Safester C# OpenPGP Library")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("KawanSoft")]
 [assembly: AssemblyProduct("Safester CryptoLibrary")]
