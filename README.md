@@ -30,7 +30,7 @@ The targets of the library are:
 - Xamarin.iOS/ Xamarin.iOS Classic
 - Xamarin.Mac
 
-The underlying crypto library used is Bouncy Castle through it's PCL implementation.
+The underlying crypto library used is [Bouncy Castle](http://www.bouncycastle.org/csharp/) through it's [portable implementation](https://www.nuget.org/packages/Portable.BouncyCastle/).
 
 ## License
 
@@ -156,9 +156,9 @@ Console.WriteLine("Encryption done.");
 
 Note that the two `stream` instances  are always safely closed by `Encrypt`.
 
-Decryption is straightforward using a `Decryptor`. We just pass the previous built 
+Decryption is straightforward using a `Decryptor`. We just pass the previous  `privateKeyring`  (built with 
 
-`String privateKeyring = pgpKeyPairHolder.PrivateKeyRing` to the `Decryptor` constructor along with the necessary passphrase:
+`String privateKeyring = pgpKeyPairHolder.PrivateKeyRing`) to the `Decryptor` constructor along with the necessary passphrase:
 
 ```C#
 string inFileEncrypted = rootDir + "\\safester_samples\\koala.jpg.pgp"; 
