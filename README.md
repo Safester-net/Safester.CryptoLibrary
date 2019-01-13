@@ -8,14 +8,14 @@
 
 # Fundamentals 
 
-Safester.CryptoLibrary is a simple to use encryption library based on [OpenPGP](https://www.openpgp.org/) and packaged as a PCL.
+Safester.CryptoLibrary is a simple to use encryption C# library based on [OpenPGP](https://www.openpgp.org/) and packaged as a PCL.
 
 It provides :
 
-- PGP key pair generations,
-- files and texts encryption & decryption.
+- PGP key pair generation,
+- PGP encryption & decryption for files and texts
 
-The scope of library is voluntarily limited to encryption operations only, for ease of use.
+For ease of use, the scope of the library is voluntarily limited to encryption operations only, there are no signature methods.
 
 ## Technical operating environment – Portable Class Library
 
@@ -42,7 +42,7 @@ Install the [NuGet Package](https://www.nuget.org/packages/Safester.CryptoLibrar
 
 # Using the Library
 
-## Generating Key Pair
+## Generating Key Pairs
 
 Key Pair generation is done with the `PgpKeyPairGenerator`class:
 
