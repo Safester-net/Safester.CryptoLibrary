@@ -52,14 +52,15 @@ namespace Safester.CryptoLibrary.Samples.Src.samples
             string inFile = rootDir + "\\safester_samples\\koala.jpg";
             string outFile = rootDir + "\\safester_samples\\koala.jpg.pgp";
 
-            // stream is universal, but System.IO.File is Windows only 
-            // and can not be used in our Safester.CryptoLibrary PCL methods:
+            // This sample runs on Windows. 
+            // Use System.IO.File to open the in and out streams
             Stream inputStream = File.OpenRead(inFile);
             Stream outputStream = File.OpenWrite(outFile);
 
             bool armor = false;
             bool withIntegrityCheck = true;
 
+            // Create an Encryptor instance and pass the public keys and streams
             Encryptor encryptor = new Encryptor(armor, withIntegrityCheck);
             encryptor.Encrypt(encKeys, inputStream, outputStream);
             Console.WriteLine("Encryption done.");
