@@ -206,8 +206,8 @@ Decryption is straightforward:
 
 ```C#
 decryptor = new Decryptor(privateKeyring, passphrase);
-string decryptText = decryptor.Decrypt(outText);
-Console.WriteLine(decryptText);
+string decryptedText = decryptor.Decrypt(outText);
+Console.WriteLine(decryptedText);
 ```
 ## Code Samples
 
