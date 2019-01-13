@@ -2,7 +2,7 @@
 
 ## Open PGP C# PCL Library
 
-## v1.0.3 - January 2019, 13
+## v1.0.4 - January 2019, 13
 
 <img src="https://www.safester.net/img/icon-64x64.png" alt="Safester Icon"/>
 
@@ -34,7 +34,7 @@ The underlying crypto library used is Bouncy Castle through it's PCL implementat
 
 ## License
 
-The SDK is licensed with the liberal [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) license.
+The SDK is licensed with the liberal [Apache 2.0](https://github.com/kawansoft/Safester.CryptoLibrary/blob/master/LICENSE) license.
 
 ## Installation
 

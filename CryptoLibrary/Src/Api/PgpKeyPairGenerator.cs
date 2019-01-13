@@ -36,8 +36,8 @@ using Safester.CryptoLibrary.Api.Util;
 namespace Safester.CryptoLibrary.Api
 {
     /// <summary>
-    /// Allows to generate a PGP Key Pair that will be use for Register. 
-    /// Will create a strign armored keyring for both the
+    /// Allows to generate a PGP Key Pair. 
+    /// Will create a string Base64 armored keyring for both the
     /// private and public PGP key.
     /// </summary>
     public class PgpKeyPairGenerator
@@ -121,7 +121,7 @@ namespace Safester.CryptoLibrary.Api
         /// <summary>
         /// Generates the armored private and public keyrings. 
         /// </summary>
-        /// <returns>The PgpKeyPairHolder that contains arrmored private/secret keyring and armored public keyring </returns>
+        /// <returns>The PgpKeyPairHolder that contains armored private/secret keyring and armored public keyring </returns>
         public PgpKeyPairHolder Generate()
         {
             MemoryStream outSecret = new MemoryStream();

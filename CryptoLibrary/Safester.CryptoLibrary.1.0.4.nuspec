@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Safester.CryptoLibrary</id>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <title>Safester.CryptoLibrary</title>
     <authors>KawanSoft</authors>
     <owners>KawanSoft</owners>
@@ -10,8 +10,8 @@
     <licenseUrl>https://github.com/kawansoft/Safester.CryptoLibrary/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/kawansoft/Safester.CryptoLibrary</projectUrl>
     <iconUrl>https://www.safester.net/img/icon-64x64.png</iconUrl>
-    <description>Safester C# OpenPGP Library</description>
-    <copyright>Copyright ©  2019</copyright>
+    <description>Safester OpenPGP Library</description>
+    <copyright>Copyright © 2019</copyright>
     <dependencies>
       <group targetFramework=".NETPortable4.5-Profile7">
         <dependency id="PCLStorage" version="1.0.2" exclude="Build,Analyzers" />

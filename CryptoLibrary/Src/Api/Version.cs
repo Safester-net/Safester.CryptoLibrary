@@ -33,6 +33,7 @@ using System.Threading.Tasks;
 // 12/01/19 19:48 NDP: Rename classes & method names
 // 12/01/19 20:18 NDP: Comments & Regenerate Nuget 
 // 13/01/19 00:29 NDP: No more stream keyring in Decryptor
+// 13/01/19 10:53 NDP: Update project labels
 
 namespace Safester.CryptoLibrary.Api
 {
@@ -49,7 +50,7 @@ namespace Safester.CryptoLibrary.Api
         /// <summary>
         /// Version number.
         /// </summary>
-        public static readonly String VERSION_NUMBER = "v1.0.3";
+        public static readonly String VERSION_NUMBER = "v1.0.4";
 
         /// <summary>
         /// Release date

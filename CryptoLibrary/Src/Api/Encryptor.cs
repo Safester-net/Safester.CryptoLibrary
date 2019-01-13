@@ -39,17 +39,17 @@ namespace Safester.CryptoLibrary.Api
         private bool withIntegrityCheck = true;
 
         /// <summary>
-        /// if true resulting file will be be Base64 armored
+        /// if true resulting file will be Base64 armored
         /// </summary>
         public bool Armor { get => armor; }
 
         /// <summary>
-        /// If true, an integrity check is done. It can be tested at decryption. 
+        /// If true, an integrity check is done at decryption. 
         /// </summary>
         public bool WithIntegrityCheck { get => withIntegrityCheck; }
 
         /// <summary>
-        /// Default constructor. Encrypts with no armor and with integerity check.
+        /// Default constructor. Encrypts with no armor and with integrity check.
         /// </summary>
         public Encryptor()
         {
@@ -59,7 +59,7 @@ namespace Safester.CryptoLibrary.Api
         /// <summary>
         /// Constructor that allows to define if encryption is armored and integrity check done.
         /// </summary>
-        /// <param name="armor">if true, the reuslting file will be be Base64 armored.</param>
+        /// <param name="armor">if true, the encrypted file will be  Base64 armored.</param>
         /// <param name="withIntegrityCheck">If true an integrity check will be done</param>
         public Encryptor(bool armor, bool withIntegrityCheck)
         {

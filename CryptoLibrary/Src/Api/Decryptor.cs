@@ -28,7 +28,7 @@ using System.Threading.Tasks;
 namespace Safester.CryptoLibrary.Api
 {
     /// <summary>
-    /// Allows to PGP decrypt a stream or a string using a private/secretkey extracted from a keyring.
+    /// Allows to PGP decrypt a stream or a string using a private/secret key extracted from a keyring.
     /// </summary>
     public class Decryptor
     {
@@ -66,7 +66,7 @@ namespace Safester.CryptoLibrary.Api
         /// Decrypts a input stream into an output stream. The first argument is the stream off the private keyring.
         /// </summary>
         /// <param name="inputStream">The input stream to encrypt</param>
-        /// <param name="outputStream">The encrypted outout stream created by the method.</param>
+        /// <param name="outputStream">The encrypted output stream created by the method.</param>
         /// 
         public void Decrypt(
             Stream inputStream,
