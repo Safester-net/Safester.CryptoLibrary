@@ -200,6 +200,7 @@ Decryption is straightforward:
 ```C#
 decryptor = new Decryptor(privateKeyring, passphrase);
 string decryptedText = decryptor.Decrypt(outText);
+Console.WriteLine("Decryption integrity check status: " + decryptor.Verify);
 Console.WriteLine(decryptedText);
 ```
 ## Code Samples

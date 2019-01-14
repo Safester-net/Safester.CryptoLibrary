@@ -86,6 +86,7 @@ namespace Safester.CryptoLibrary.Samples.Src.samples
 
             decryptor = new Decryptor(privateKeyring, passphrase);
             string decryptText = decryptor.Decrypt(outText);
+            Console.WriteLine("Decryption integrity check status: " + decryptor.Verify);
             Console.WriteLine(decryptText);
 
             decryptText = decryptor.Decrypt(outText);
