@@ -127,20 +127,20 @@ List<PgpPublicKey> encKeys = new List<PgpPublicKey>();
 encKeys.Add(pgpPublicKey);
 ```
 
-We then define if we want to Base64 armor the encrypted file and if the file integrity will be checked during decryption and then encrypt the file. 
+We then define if we want to Base64 armor the encrypted file and if the file integrity will be checked during decryption.
 
 We will use an `Encryptor` and pass to the `Encrypt` method the `List` of `PgpPublicKey`. Because Safester.CrytolLibrary is a portable library that works on many environments, crypto operations on files are done passing read and write `stream` instances to the library classes. (The library thus does not use `File` descriptors that are implementation specific).
 
 ```c#
 // Our sample runs on Windows. 
-// We thus Use System.IO.File to open the in and out streams
+// We thus use System.IO.File to open the in and out streams
 Stream inputStream = File.OpenRead(inFile); 
 Stream outputStream = File.OpenWrite(outFile);
 
 bool armor = false; // No ASCII Base64 armor, encrypted file will be binary
 bool withIntegrityCheck = true;
 
-// Create an Encryptor instance and pass the public keys and streams
+// Create an Encryptor instance and pass the public keys and file streams
 Encryptor encryptor = new Encryptor(armor, withIntegrityCheck);
 encryptor.Encrypt(encKeys, inputStream, outputStream);
 Console.WriteLine("Encryption done.");
