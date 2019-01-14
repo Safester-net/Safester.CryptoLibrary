@@ -129,7 +129,7 @@ encKeys.Add(pgpPublicKey);
 
 We define if we want to Base64 armor the encrypted file and if the file integrity will be checked during decryption and then encrypt the file. 
 
-We will use an `Encryptor` and pass to the `Encrypt` method the `List` of `PgpPublicKey`. And because we use a PCL that works on many environments, crypto operations on files are done passing read and write `stream` instances to the library classes. (The library thus does not use `File` descriptors that are implementation specific).
+We will use an `Encryptor` and pass to the `Encrypt` method the `List` of `PgpPublicKey`. Because Safester.CrytolLibrary is a portable library that works on many environments, crypto operations on files are done passing read and write `stream` instances to the library classes. (The library thus does not use `File` descriptors that are implementation specific).
 
 ```c#
 // Our sample runs on Windows. 
