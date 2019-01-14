@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Safester.CryptoLibrary", "CryptoLibrary\Safester.CryptoLibrary.csproj", "{4A7A63FE-D4E6-4956-9A49-74669CA47DA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Safester.CryptoLibrary", "CryptoLibrary\Safester.CryptoLibrary.csproj", "{4A7A63FE-D4E6-4956-9A49-74669CA47DA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Safester.CryptoLibrary.Samples", "CryptoLibrary.Samples\Safester.CryptoLibrary.Samples.csproj", "{BB1EBD6B-90C4-4AD0-872B-38AF91EF1BD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Safester.CryptoLibrary.Samples", "CryptoLibrary.Samples\Safester.CryptoLibrary.Samples.csproj", "{144E3D94-ADA5-413C-BDFC-5938AA3A2DD1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{4A7A63FE-D4E6-4956-9A49-74669CA47DA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A7A63FE-D4E6-4956-9A49-74669CA47DA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A7A63FE-D4E6-4956-9A49-74669CA47DA4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BB1EBD6B-90C4-4AD0-872B-38AF91EF1BD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BB1EBD6B-90C4-4AD0-872B-38AF91EF1BD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BB1EBD6B-90C4-4AD0-872B-38AF91EF1BD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BB1EBD6B-90C4-4AD0-872B-38AF91EF1BD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{144E3D94-ADA5-413C-BDFC-5938AA3A2DD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{144E3D94-ADA5-413C-BDFC-5938AA3A2DD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{144E3D94-ADA5-413C-BDFC-5938AA3A2DD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{144E3D94-ADA5-413C-BDFC-5938AA3A2DD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

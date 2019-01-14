@@ -44,8 +44,7 @@ namespace CryptoLibrary.Samples.Src
 
         public static void Main(string[] args)
         {
-            SafesterCryptolibSample.DoIt();
-
+       
             passphrase = File.ReadAllText(basePath + "\\password.txt");
 
             Console.WriteLine(DateTime.Now + " Generate key pair...");

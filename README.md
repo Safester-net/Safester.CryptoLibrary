@@ -44,7 +44,7 @@ Install the [NuGet Package](https://www.nuget.org/packages/Safester.CryptoLibrar
 
 ## Generating Key Pairs
 
-Key Pair generation is done with the `PgpKeyPairGenerator`class:
+Key Pair generation is done with the `PgpKeyPairGenerator` class:
 
 ```C#
 string identity = "john@smith.com";
@@ -137,7 +137,7 @@ encKeys.Add(pgpPublicKey);
 
 We define if we want to Base64 armor the encrypted file and if the file integrity will be checked during decryption and then encrypt the file. 
 
-We will use an `Encryptor` and pass to `Encrypt` method the `List` of `PgpPublicKey`. And because we use a PCL that works on many environments, crypto operations on files are done passing read and write `stream` instances to the library classes. (The library thus does not use `File` descriptors that are implementation specific).
+We will use an `Encryptor` and pass to the `Encrypt` method the `List` of `PgpPublicKey`. And because we use a PCL that works on many environments, crypto operations on files are done passing read and write `stream` instances to the library classes. (The library thus does not use `File` descriptors that are implementation specific).
 
 ```c#
 // This sample runs on Windows. 
