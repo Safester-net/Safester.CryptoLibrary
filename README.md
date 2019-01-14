@@ -1,6 +1,6 @@
 # Safester.CryptoLibrary 
 
-## Open PGP C# Portable Library - v1.0.5 - January 2019, 14
+## Open PGP C# Portable Library - v1.0.6 - January 2019, 14
 
 
 
@@ -19,7 +19,7 @@ For ease of use, the scope of the library is voluntarily limited to encryption o
 
 ## Technical operating environment – Portable Library
 
-Safester.CryptoLibrary is entirely written in C# and is packaged as a [.NET Standard 1.3](https://docs.microsoft.com/dotnet/standard/net-standard)  portable library, which works on Windows Desktop and on Android, iOS & macOS with [Xamarin](https://visualstudio.microsoft.com/xamarin/).
+Safester.CryptoLibrary is entirely written in C# and is packaged as a [.NET Standard 2.0](https://docs.microsoft.com/dotnet/standard/net-standard)  portable library, which works on Windows Desktop and on Android, iOS & macOS with [Xamarin](https://visualstudio.microsoft.com/xamarin/).
 
 The underlying crypto library used is [Bouncy Castle](http://www.bouncycastle.org/csharp/) through its [portable implementation](https://www.nuget.org/packages/Portable.BouncyCastle/).
 

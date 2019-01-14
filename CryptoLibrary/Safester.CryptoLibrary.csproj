@@ -1,17 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard1.3</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>KawanSoft</Authors>
     <Company>KawanSoft</Company>
     <Product>Safester.Cryptolibrary</Product>
     <PackageLicenseUrl>https://github.com/kawansoft/Safester.CryptoLibrary/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/kawansoft/Safester.CryptoLibrary</PackageProjectUrl>
-    <Version>1.0.5</Version>
+    <Version>1.0.6</Version>
     <Copyright>KawanSoft, 2019</Copyright>
     <PackageIconUrl>https://www.safester.net/img/icon-64x64.png</PackageIconUrl>
     <Description>Simple and easy to use OpenPGP library</Description>
-    <PackageTags>Crypto Encryption OpenPGP Cryptography RSA ELGAMAL Security</PackageTags>
+    <PackageTags>Crypto Encryption Decryption OpenPGP Cryptography RSA DSA AES ELGAMAL Security Email Encryption File Encryption</PackageTags>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>Now targets .Net Standard 2.0</PackageReleaseNotes>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>bin\Release\netstandard1.3\Safester.CryptoLibrary.xml</DocumentationFile>

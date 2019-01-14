@@ -35,6 +35,7 @@ using System.Threading.Tasks;
 // 13/01/19 00:29 NDP: No more stream keyring in Decryptor
 // 13/01/19 10:53 NDP: Update project labels
 // 14/01/19 17:15 NDP: Project is now Net Standard
+// 14/01/19 23:06 NDP: Targe Net Standard 2.0
 
 namespace Safester.CryptoLibrary.Api
 {
@@ -51,7 +52,7 @@ namespace Safester.CryptoLibrary.Api
         /// <summary>
         /// Version number.
         /// </summary>
-        public static readonly String VERSION_NUMBER = "v1.0.5";
+        public static readonly String VERSION_NUMBER = "v1.0.6";
 
         /// <summary>
         /// Release date
