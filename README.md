@@ -21,7 +21,7 @@ For ease of use, the scope of the library is voluntarily limited to encryption o
 
 Safester.CryptoLibrary is entirely written in C# and is packaged as a [.NET Standard 1.3](https://docs.microsoft.com/dotnet/standard/net-standard)  portable library, which works on Windows Desktop and on Android, iOS & macOS with [Xamarin](https://visualstudio.microsoft.com/xamarin/).
 
-The underlying crypto library used is [Bouncy Castle](http://www.bouncycastle.org/csharp/) through it's [portable implementation](https://www.nuget.org/packages/Portable.BouncyCastle/).
+The underlying crypto library used is [Bouncy Castle](http://www.bouncycastle.org/csharp/) through its [portable implementation](https://www.nuget.org/packages/Portable.BouncyCastle/).
 
 ## License
 
@@ -46,13 +46,13 @@ PgpKeyPairGenerator generator =
 PgpKeyPairHolder pgpKeyPairHolder = generator.Generate();
 ```
 
-It is then possible to retrieve the Base64 armored PGP keyrings for crypto operations:
+It is then possible to retrieve the Base64 armored PGP keyrings to use for crypto operations:
 
 ```C#
 String privateKeyring = pgpKeyPairHolder.PrivateKeyRing;
 String publicKeyring = pgpKeyPairHolder.PublicKeyRing;
 ```
-This is and example of the display of the the two keyrings:
+This is how the two keyrings look alike when displayed on the console:
 
 ```pgp
 -----BEGIN PGP PRIVATE KEY BLOCK-----
@@ -127,7 +127,7 @@ List<PgpPublicKey> encKeys = new List<PgpPublicKey>();
 encKeys.Add(pgpPublicKey);
 ```
 
-We define if we want to Base64 armor the encrypted file and if the file integrity will be checked during decryption and then encrypt the file. 
+We then define if we want to Base64 armor the encrypted file and if the file integrity will be checked during decryption and then encrypt the file. 
 
 We will use an `Encryptor` and pass to the `Encrypt` method the `List` of `PgpPublicKey`. Because Safester.CrytolLibrary is a portable library that works on many environments, crypto operations on files are done passing read and write `stream` instances to the library classes. (The library thus does not use `File` descriptors that are implementation specific).
 
@@ -137,7 +137,7 @@ We will use an `Encryptor` and pass to the `Encrypt` method the `List` of `PgpPu
 Stream inputStream = File.OpenRead(inFile); 
 Stream outputStream = File.OpenWrite(outFile);
 
-bool armor = false;
+bool armor = false; // No ASCII Base64 armor, encrypted file will be binary
 bool withIntegrityCheck = true;
 
 // Create an Encryptor instance and pass the public keys and streams
