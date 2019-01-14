@@ -1,6 +1,6 @@
 # Safester.CryptoLibrary 
 
-## Open PGP C# PCL Library - v1.0.4 - January 2019, 13
+## Open PGP C# Portable Library - v1.0.5 - January 2019, 14
 
 
 
@@ -8,33 +8,24 @@
 
 # Fundamentals 
 
-Safester.CryptoLibrary is a simple to use encryption C# library based on [OpenPGP](https://www.openpgp.org/) and packaged as a PCL.
+Safester.CryptoLibrary is a simple to use portable encryption library based on [OpenPGP](https://www.openpgp.org/). 
 
 It provides :
 
 - PGP key pair generation,
 - PGP encryption & decryption for files and texts
 
-For ease of use, the scope of the library is voluntarily limited to encryption operations only, there are no signature methods.
+For ease of use, the scope of the library is voluntarily limited to encryption operations only. There are no signature methods.
 
-## Technical operating environment – Portable Class Library
+## Technical operating environment – Portable Library
 
-The library is entirely written in C# and is packaged as a Portable Class Library, which works on Windows Desktop and on Android, iOS & macOS with Xamarin.
-
-The targets of the library are:
-
-- NetFramework 4.5
-- ASP.NETCore 1.0
-- Windows7+
-- Xamarin.Android
-- Xamarin.iOS/ Xamarin.iOS Classic
-- Xamarin.Mac
+Safester.CryptoLibrary is entirely written in C# and is packaged as a [.NET Standard 1.3](https://docs.microsoft.com/dotnet/standard/net-standard)  portable library, which works on Windows Desktop and on Android, iOS & macOS with [Xamarin](https://visualstudio.microsoft.com/xamarin/).
 
 The underlying crypto library used is [Bouncy Castle](http://www.bouncycastle.org/csharp/) through it's [portable implementation](https://www.nuget.org/packages/Portable.BouncyCastle/).
 
 ## License
 
-The SDK is licensed with the liberal [Apache 2.0](https://github.com/kawansoft/Safester.CryptoLibrary/blob/master/LICENSE) license.
+The library is licensed with the liberal [Apache 2.0](https://github.com/kawansoft/Safester.CryptoLibrary/blob/master/LICENSE) license.
 
 ## Installation
 

@@ -34,7 +34,7 @@ using System.Threading.Tasks;
 // 12/01/19 20:18 NDP: Comments & Regenerate Nuget 
 // 13/01/19 00:29 NDP: No more stream keyring in Decryptor
 // 13/01/19 10:53 NDP: Update project labels
-// 14/01/19 10:53 NDP: Project is now Net Standard
+// 14/01/19 17:15 NDP: Project is now Net Standard
 
 namespace Safester.CryptoLibrary.Api
 {

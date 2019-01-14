@@ -11,6 +11,7 @@
     <Copyright>KawanSoft, 2019</Copyright>
     <PackageIconUrl>https://www.safester.net/img/icon-64x64.png</PackageIconUrl>
     <Description>Simple and easy to use OpenPGP library</Description>
+    <PackageTags>Crypto Encryption OpenPGP Cryptography RSA ELGAMAL Security</PackageTags>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>bin\Release\netstandard1.3\Safester.CryptoLibrary.xml</DocumentationFile>
