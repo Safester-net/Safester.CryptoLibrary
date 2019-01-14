@@ -114,6 +114,7 @@ dHUiMLccSoE26YBt0vmVQdfxdQ==
 Let's define the file to encrypt and the output file:
 
 ```C#
+// Our sample runs on Windows... Just adapt for a Xamarin test.
 string rootDir = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
 string inFile = rootDir + "\\safester_samples\\koala.jpg";
 string outFile = rootDir + "\\safester_samples\\koala.jpg.pgp";
@@ -131,8 +132,8 @@ We define if we want to Base64 armor the encrypted file and if the file integrit
 We will use an `Encryptor` and pass to the `Encrypt` method the `List` of `PgpPublicKey`. And because we use a PCL that works on many environments, crypto operations on files are done passing read and write `stream` instances to the library classes. (The library thus does not use `File` descriptors that are implementation specific).
 
 ```c#
-// This sample runs on Windows. 
-// Use System.IO.File to open the in and out streams
+// Our sample runs on Windows. 
+// We thus Use System.IO.File to open the in and out streams
 Stream inputStream = File.OpenRead(inFile); 
 Stream outputStream = File.OpenWrite(outFile);
 
