@@ -1,4 +1,5 @@
-﻿using Safester.CryptoLibrary.Api;
+﻿using Org.BouncyCastle.Bcpg.OpenPgp;
+using Safester.CryptoLibrary.Api;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,6 +32,65 @@ namespace Safester.CryptoLibrary.Samples.Src.samples
             Console.WriteLine();
             Console.WriteLine("Press enter to close....");
             Console.ReadLine();
+
+        }
+
+        public static void SafesterSendMessageCodeSample()
+        {
+            List<PgpPublicKey> encKeys = new List<PgpPublicKey>();
+            encKeys = MyCallGetPublicKeys();
+
+            // Get the PGP key from server with /getPublicKey 
+            // and userEmailAddr = "contact@safelogic.com"
+            String masterPgpPublicKeyring = MyCallGetPublicKey("contact@safelogic.com");
+
+            // Send message for all users
+            List<String> recipientEmails = MyGetRecipients();
+            List<String> recipientEmailsValidated = new List<String>();
+
+            for (int i = 0; i < recipientEmails.Count; i++)
+            {
+                String theRecipientEmail = recipientEmails[i];
+                PgpPublicKey theRecipientPgpPublicKey = encKeys[i];
+
+                PgpPublicKeyVerifier verifier = new PgpPublicKeyVerifier();
+                bool verify = verifier.VerifySignature(theRecipientPgpPublicKey, 
+                    masterPgpPublicKeyring);
+
+                if (!verify)
+                {
+                    Console.WriteLine("ALERT! Recipient PGP Public key is invalid." +
+                        " Mail will not be sent for: " + theRecipientEmail);
+                }
+                else
+                {
+                    // Recipient PGP public is OK and authenticated
+                    recipientEmailsValidated.Add(theRecipientEmail);
+                }
+            }
+
+            // OK, send the email only to validated recipients
+            MySendMessage(recipientEmailsValidated);
+        }
+
+        private static void MySendMessage(List<string> recipientEmailsValidated)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static List<PgpPublicKey> MyCallGetPublicKeys()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static string MyCallGetPublicKey(string v)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static List<String> MyGetRecipients()
+        {
+            throw new NotImplementedException();
         }
     }
 }

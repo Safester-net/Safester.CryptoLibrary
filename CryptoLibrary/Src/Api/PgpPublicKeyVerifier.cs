@@ -36,16 +36,29 @@ namespace Safester.CryptoLibrary.Api
         /// <summary>
         /// Verify that the passed PGP Public key is signed by the passed PGP master signature key.
         /// </summary>
-        /// <param name="publicKeyRing">The encryption  PGP public key to test the signature from</param>
+        /// <param name="publicKeyRing">The encryption  PGP public keyring to test the signature from</param>
         /// <param name="publicKeyRingMaster">The signature PGP public key to use to check the signature</param>
         /// <returns>true if the if the sigature is valid, else false</returns>
         public bool VerifySignature(string publicKeyRing, string publicKeyRingMaster)
         {
-            this.exception = null;
-
             PgpPublicKey pgpPublicKey = PgpPublicKeyGetter.ReadPublicKey(publicKeyRing);
             PgpPublicKey pgpPublicKeyMaster = PgpSignPublicKeyGetter.ReadPublicKey(publicKeyRingMaster);
-     
+            bool verify = VerifySignature(pgpPublicKey, publicKeyRingMaster);
+            return verify;
+        }
+
+        /// <summary>
+        /// Verify that the passed PGP Public key is signed by the passed PGP master signature key.
+        /// </summary>
+        /// <param name="pgpPublicKey">The encryption PGP public to test the signature from</param>
+        /// <param name="publicKeyRingMaster">The signature PGP public key to use to check the signature</param>
+        /// <returns>true if the if the sigature is valid, else false</returns>
+        public bool VerifySignature(PgpPublicKey pgpPublicKey, string publicKeyRingMaster)
+        {
+            this.exception = null;
+
+            PgpPublicKey pgpPublicKeyMaster = PgpSignPublicKeyGetter.ReadPublicKey(publicKeyRingMaster);
+
             foreach (PgpSignature sig in pgpPublicKey.GetKeySignatures())
             {
                 if (sig.KeyId != pgpPublicKeyMaster.KeyId)
@@ -54,7 +67,7 @@ namespace Safester.CryptoLibrary.Api
                 }
 
                 try
-                { 
+                {
                     sig.InitVerify(pgpPublicKeyMaster);
 
                     if (sig.SignatureType == PgpSignature.SubkeyBinding)
@@ -72,7 +85,5 @@ namespace Safester.CryptoLibrary.Api
 
             return false;
         }
-
-
     }
 }

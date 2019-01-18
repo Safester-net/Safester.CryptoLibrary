@@ -36,7 +36,8 @@ using System.Threading.Tasks;
 // 13/01/19 10:53 NDP: Update project labels
 // 14/01/19 17:15 NDP: Project is now Net Standard
 // 14/01/19 23:06 NDP: Target Net Standard 2.0
-// 17/01/19 12:45 NDP: Add Public key signature verification
+// 18/01/19 12:45 NDP: Add Public key signature verification
+// 18/01/19 12:03 NDP: Add Public key signature verification
 
 namespace Safester.CryptoLibrary.Api
 {
@@ -53,7 +54,7 @@ namespace Safester.CryptoLibrary.Api
         /// <summary>
         /// Version number.
         /// </summary>
-        public static readonly String VERSION_NUMBER = "v1.0.7";
+        public static readonly String VERSION_NUMBER = "v1.0.8";
 
         /// <summary>
         /// Release date
