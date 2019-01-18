@@ -44,7 +44,12 @@ namespace CryptoLibrary.Samples.Src
 
         public static void Main(string[] args)
         {
-       
+            TestAll();
+        }
+
+
+        public static void TestAll()
+        {
             passphrase = File.ReadAllText(basePath + "\\password.txt");
 
             Console.WriteLine(DateTime.Now + " Generate key pair...");
@@ -78,7 +83,8 @@ namespace CryptoLibrary.Samples.Src
 
             //Test a Safester decryption with an existing Keyring
             TestSafesterKeysAndFiles.Test();
-        }
 
+            TestKeySignatureVerifySample.TestKeySignature();
+        }
     }
 }
