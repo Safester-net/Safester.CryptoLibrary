@@ -44,7 +44,15 @@ namespace CryptoLibrary.Samples.Src
 
         public static void Main(string[] args)
         {
-            TestAll();
+            string result = PassphraseUtil.ComputeHashAndSaltedPassphrase("brunopaul88@outlook.com", "brunopaul88");
+            Console.WriteLine("result: " + result);
+            Console.WriteLine("Press enter to close....");
+            Console.ReadLine();
+            
+            //TestAll();
+
+            //DecryptionLoop.DoIt();
+            
         }
 
 
@@ -74,11 +82,10 @@ namespace CryptoLibrary.Samples.Src
             Console.WriteLine(DateTime.Now + " Encrypted Text:");
             Console.WriteLine(DateTime.Now + " " + encryptedText);
 
-            Console.WriteLine(DateTime.Now + " Text decryption...");
-            TextDecryptionSample textDecryptionSample = new TextDecryptionSample(pgpPairKeyring.PrivateKeyRing, passphrase.ToCharArray());
-            string clearText_2 = textDecryptionSample.Decrypt(encryptedText);
+            Decryptor decryptor = new Decryptor(pgpPairKeyring.PrivateKeyRing, passphrase.ToCharArray());
+            string clearText_2 = decryptor.Decrypt(encryptedText);
 
-            Console.WriteLine(DateTime.Now + " Clear Text 1:");
+            Console.WriteLine(DateTime.Now + " Clear Text decrypted after loop:");
             Console.WriteLine(DateTime.Now + " " + clearText_2);
 
             //Test a Safester decryption with an existing Keyring

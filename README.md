@@ -4,7 +4,7 @@
 
 
 
-<img src="https://www.safester.net/img/icon-64x64.png" alt="Safester Icon"/>
+<img src="https://www.runsafester.net/img/icon-64x64.png" alt="Safester Icon"/>
 
 # Fundamentals 
 

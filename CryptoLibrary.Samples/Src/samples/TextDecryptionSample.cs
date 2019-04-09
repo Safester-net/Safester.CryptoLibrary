@@ -45,7 +45,7 @@ namespace CryptoLibrary.Samples
         {
             Decryptor decryptor = new Decryptor(privateKeyRing, passphrase);
             string outText = decryptor.Decrypt(inText);
-            Console.WriteLine("Decryption done.");
+            //Console.WriteLine("Decryption done.");
             return outText;
         }
 

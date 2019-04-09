@@ -40,6 +40,8 @@ namespace Safester.CryptoLibrary.Api
         private string privateArmoredKeyring = null;
         private char[] passphrase = null;
 
+        PgpSecretKeyRingBundle pgpSec = null;
+
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -59,21 +61,29 @@ namespace Safester.CryptoLibrary.Api
 
             this.privateArmoredKeyring = privateArmoredKeyring;
             this.passphrase = passphrase;
+
+            byte[] bytes = Encoding.UTF8.GetBytes(privateArmoredKeyring);
+            MemoryStream privateKeyring = new MemoryStream(bytes);
+            this.pgpSec = new PgpSecretKeyRingBundle(
+            PgpUtilities.GetDecoderStream(privateKeyring));
+
         }
 
 
         /// <summary>
         /// Decrypts a input stream into an output stream. The first argument is the stream off the private keyring.
         /// </summary>
-        /// <param name="inputStream">The input stream to encrypt</param>
-        /// <param name="outputStream">The encrypted output stream created by the method.</param>
+        /// <param name="inputStream">The input stream to decrypt</param>
+        /// <param name="outputStream">The decrypted output stream created by the method.</param>
         /// 
         public void Decrypt(
             Stream inputStream,
             Stream outputStream)
         {
+            /*
             byte[] bytes = Encoding.UTF8.GetBytes(privateArmoredKeyring);
             MemoryStream privateKeyring = new MemoryStream(bytes);
+            */
 
             if (inputStream == null)
             {
@@ -111,8 +121,11 @@ namespace Safester.CryptoLibrary.Api
                 PgpPrivateKey sKey = null;
 
                 PgpPublicKeyEncryptedData pbe = null;
+
+                /*
                 PgpSecretKeyRingBundle pgpSec = new PgpSecretKeyRingBundle(
                     PgpUtilities.GetDecoderStream(privateKeyring));
+                */
 
                 foreach (PgpPublicKeyEncryptedData pked in enc.GetEncryptedDataObjects())
                 {
