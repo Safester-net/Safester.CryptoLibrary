@@ -9,7 +9,7 @@
     <PackageProjectUrl>https://github.com/kawansoft/Safester.CryptoLibrary</PackageProjectUrl>
     <Version>1.0.9</Version>
     <Copyright>KawanSoft, 2019</Copyright>
-    <PackageIconUrl>https://www.safester.net/img/icon-64x64.png</PackageIconUrl>
+    <PackageIconUrl>https://www.runsafester.net/img/safester-new-64x64.png</PackageIconUrl>
     <Description>Simple and easy to use OpenPGP library</Description>
     <PackageTags>Crypto Encryption Decryption OpenPGP Cryptography RSA DSA AES ELGAMAL Security Email Encryption File Encryption</PackageTags>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
