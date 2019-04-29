@@ -19,6 +19,8 @@
 using Safester.CryptoLibrary.Api;
 using Safester.CryptoLibrary.Samples.Src.samples;
 using Safester.CryptoLibrary.Samples.Src.tests;
+using Safester.CryptoLibrary.Src.Api;
+using Safester.CryptoLibrary.Src.Api.Util;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -30,6 +32,7 @@ namespace CryptoLibrary.Samples.Src
 {
     public class MainControler
     {
+
         public static string clearText = "Longtemps je me suis couché de bonne heure.";
         public static string basePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\safester_samples";
 
@@ -44,15 +47,18 @@ namespace CryptoLibrary.Samples.Src
 
         public static void Main(string[] args)
         {
-            string result = PassphraseUtil.ComputeHashAndSaltedPassphrase("brunopaul88@outlook.com", "brunopaul88");
-            Console.WriteLine("result: " + result);
-            Console.WriteLine("Press enter to close....");
-            Console.ReadLine();
-            
+            //HexConverterSample.Convert();
+            PassphraseProctectorSample.ProtectAndUnprotect();
+
+            //string result = PassphraseUtil.ComputeHashAndSaltedPassphrase("brunopaul88@outlook.com", "brunopaul88");
+            //Console.WriteLine("result: " + result);
+            //Console.WriteLine("Press enter to close....");
+            //Console.ReadLine();
+
             //TestAll();
 
             //DecryptionLoop.DoIt();
-            
+
         }
 
 
