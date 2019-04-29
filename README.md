@@ -1,10 +1,10 @@
 # Safester.CryptoLibrary 
 
-## Open PGP C# Portable Library - v1.0.6 - January 2019, 14
+## Open PGP C# Portable Library - v1.0.9 - April 2019, 29
 
 
 
-<img src="https://www.runsafester.net/img/icon-64x64.png" alt="Safester Icon"/>
+<img src="https://www.runsafester.net/img/safester-new-64x64.png" alt="Safester Icon"/>
 
 # Fundamentals 
 
