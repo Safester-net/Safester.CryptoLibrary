@@ -47,18 +47,7 @@ namespace CryptoLibrary.Samples.Src
 
         public static void Main(string[] args)
         {
-            //HexConverterSample.Convert();
-            PassphraseProctectorSample.ProtectAndUnprotect();
-
-            //string result = PassphraseUtil.ComputeHashAndSaltedPassphrase("brunopaul88@outlook.com", "brunopaul88");
-            //Console.WriteLine("result: " + result);
-            //Console.WriteLine("Press enter to close....");
-            //Console.ReadLine();
-
-            //TestAll();
-
-            //DecryptionLoop.DoIt();
-
+            TestAll();
         }
 
 
