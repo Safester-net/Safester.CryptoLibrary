@@ -7,14 +7,15 @@
     <Product>Safester.Cryptolibrary</Product>
     <PackageLicenseUrl>https://github.com/kawansoft/Safester.CryptoLibrary/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/kawansoft/Safester.CryptoLibrary</PackageProjectUrl>
-    <Version>1.0.11</Version>
+    <Version>1.0.12</Version>
     <Copyright>KawanSoft, 2019</Copyright>
     <PackageIconUrl>https://www.runsafester.net/img/safester-new-64x64.png</PackageIconUrl>
     <Description>Simple and easy to use OpenPGP library</Description>
     <PackageTags>Crypto Encryption Decryption OpenPGP Cryptography RSA DSA AES ELGAMAL Security Email Encryption File Encryption</PackageTags>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>Remove Windows specific passphrase protection.
-Clean comments.</PackageReleaseNotes>
+    <PackageReleaseNotes>Clean license info.</PackageReleaseNotes>
+    <AssemblyVersion>1.0.12.0</AssemblyVersion>
+    <FileVersion>1.0.12.0</FileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>bin\Release\netstandard1.3\Safester.CryptoLibrary.xml</DocumentationFile>
@@ -22,7 +23,6 @@ Clean comments.</PackageReleaseNotes>
   
   <ItemGroup>
     <PackageReference Include="Portable.BouncyCastle" Version="1.8.4" />
-    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="4.5.0" />
   </ItemGroup>
   
   <ItemGroup>

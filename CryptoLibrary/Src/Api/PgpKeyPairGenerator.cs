@@ -1,7 +1,7 @@
 ﻿/* 
  * This file is part of Safester C# OpenPGP SDK.                                
  * Copyright(C) 2019,  KawanSoft SAS
- * (http://www.kawansoft.com). All rights reserved.                                
+ * (https://www.safester.net). All rights reserved.                                
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -158,36 +158,7 @@ namespace Safester.CryptoLibrary.Api
 
         private void GenerateElGamal(Stream outSecret, Stream outPublic)
         {
-            // Prepare a strong Secure Random with seed
-            SecureRandom secureRandom = PgpEncryptionUtil.GetSecureRandom();
-
-            IAsymmetricCipherKeyPairGenerator dsaKpg = GeneratorUtilities.GetKeyPairGenerator("DSA");
-            DsaParametersGenerator pGen = new DsaParametersGenerator();
-            pGen.Init((int)publicKeyLength, 80, new SecureRandom());
-            DsaParameters dsaParams = pGen.GenerateParameters();
-            DsaKeyGenerationParameters kgp = new DsaKeyGenerationParameters(secureRandom, dsaParams);
-            dsaKpg.Init(kgp);
-
-            //
-            // this takes a while as the key generator has to Generate some DSA parameters
-            // before it Generates the key.
-            //
-            AsymmetricCipherKeyPair dsaKp = dsaKpg.GenerateKeyPair();
-            IAsymmetricCipherKeyPairGenerator elgKpg = GeneratorUtilities.GetKeyPairGenerator("ELGAMAL");
-
-            Org.BouncyCastle.Math.BigInteger g = new Org.BouncyCastle.Math.BigInteger("153d5d6172adb43045b68ae8e1de1070b6137005686d29d3d73a7749199681ee5b212c9b96bfdcfa5b20cd5e3fd2044895d609cf9b410b7a0f12ca1cb9a428cc", 16);
-            Org.BouncyCastle.Math.BigInteger p = new Org.BouncyCastle.Math.BigInteger("9494fec095f3b85ee286542b3836fc81a5dd0a0349b4c239dd38744d488cf8e31db8bcb7d33b41abb9e5a33cca9144b1cef332c94bf0573bf047a3aca98cdf3b", 16);
-
-            secureRandom = PgpEncryptionUtil.GetSecureRandom();
-            ElGamalParameters elParams = new ElGamalParameters(p, g);
-            ElGamalKeyGenerationParameters elKgp = new ElGamalKeyGenerationParameters(secureRandom, elParams);
-            elgKpg.Init(elKgp);
-
-            //
-            // this is quicker because we are using preGenerated parameters.
-            //
-            AsymmetricCipherKeyPair elgKp = elgKpg.GenerateKeyPair();
-            DsaElGamalKeyGeneratorUtil.ExportKeyPair(outSecret, outPublic, dsaKp, elgKp, identity, passphrase, true);
+            throw new NotImplementedException("ElGamal is not implemented in this version.");
         }
 
     }

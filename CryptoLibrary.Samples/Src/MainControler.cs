@@ -1,7 +1,7 @@
 ﻿/* 
  * This file is part of Safester C# OpenPGP SDK.                                
  * Copyright(C) 2019,  KawanSoft SAS
- * (http://www.kawansoft.com). All rights reserved.                                
+ * (https://www.safester.net). All rights reserved.                                
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,8 +42,8 @@ namespace CryptoLibrary.Samples.Src
 
         public const string identity = "myemail@domain.com";
         public static string passphrase = null;
-        public static PublicKeyAlgorithm pgpAsymAlgo = PublicKeyAlgorithm.DSA_ELGAMAL;
-        public static PublicKeyLength pgpAsymKeyLength = PublicKeyLength.BITS_1024;
+        public static PublicKeyAlgorithm pgpAsymAlgo = PublicKeyAlgorithm.RSA;
+        public static PublicKeyLength pgpAsymKeyLength = PublicKeyLength.BITS_2048;
 
         public static void Main(string[] args)
         {

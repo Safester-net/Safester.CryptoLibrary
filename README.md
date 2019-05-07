@@ -1,6 +1,6 @@
 # Safester.CryptoLibrary 
 
-## Open PGP C# Portable Library - v1.0.11 - May 2019, 3
+## Open PGP C# Portable Library - v1.0.12 - May 2019, 7
 
 
 

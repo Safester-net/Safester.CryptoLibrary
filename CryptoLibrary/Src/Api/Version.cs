@@ -1,7 +1,7 @@
 ﻿/* 
  * This file is part of Safester C# OpenPGP SDK.                                
  * Copyright(C) 2019,  KawanSoft SAS
- * (http://www.kawansoft.com). All rights reserved.                                
+ * (https://www.safester.net). All rights reserved.                                
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,11 +39,11 @@ namespace Safester.CryptoLibrary.Api
         /// <summary>
         /// Version number.
         /// </summary>
-        public static readonly String VERSION_NUMBER = "v1.0.11";
+        public static readonly String VERSION_NUMBER = "v1.0.12";
 
         /// <summary>
         /// Release date
         /// </summary>
-        public static readonly String DATE = "03-may-2019";
+        public static readonly String DATE = "07-may-2019";
     }
 }
