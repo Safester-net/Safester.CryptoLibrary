@@ -15,7 +15,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License. 
  */
-
 using Org.BouncyCastle.Bcpg.OpenPgp;
 using Org.BouncyCastle.Utilities.IO;
 using System;
