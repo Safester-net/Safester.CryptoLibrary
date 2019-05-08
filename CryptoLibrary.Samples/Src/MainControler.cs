@@ -32,7 +32,6 @@ namespace CryptoLibrary.Samples.Src
 {
     public class MainControler
     {
-
         public static string clearText = "Longtemps je me suis couché de bonne heure.";
         public static string basePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\safester_samples";
 
