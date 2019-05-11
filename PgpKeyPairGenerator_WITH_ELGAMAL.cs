@@ -32,8 +32,6 @@ using System.Threading.Tasks;
 using Org.BouncyCastle.Crypto.Generators;
 using Safester.CryptoLibrary.Src.Api.Util;
 using Safester.CryptoLibrary.Api.Util;
-using Safester.CryptoLibrary.Src.Api;
-using Safester.CryptoLibrary.Src.Api.Util.ElGamal;
 
 namespace Safester.CryptoLibrary.Api
 {
@@ -48,8 +46,8 @@ namespace Safester.CryptoLibrary.Api
         /// Member values 
         private string identity = null;
         private char[] passphrase = null;
-        private PublicKeyAlgorithm publicKeyAlgorithm = PublicKeyAlgorithm.RSA;
-        private PublicKeyLength publicKeyLength = PublicKeyLength.BITS_2048;
+        private PublicKeyAlgorithm publicKeyAlgorithm = PublicKeyAlgorithm.DSA_ELGAMAL;
+        private PublicKeyLength publicKeyLength = PublicKeyLength.BITS_1024;
 
 
         /// <summary>
@@ -61,11 +59,27 @@ namespace Safester.CryptoLibrary.Api
         /// <param name="publicKeyLength">PublicKeyLength.BITS_1024, PublicKeyLength.BITS_2048, PublicKeyLength.BITS_3072,,</param>
         public PgpKeyPairGenerator(string identity, char[] passphrase, PublicKeyAlgorithm publicKeyAlgorithm, PublicKeyLength publicKeyLength) 
         {
-            this.identity = identity ?? throw new ArgumentNullException("identity can not be null!");
-            this.passphrase = passphrase ?? throw new ArgumentNullException("passphrase can not be null!");
+            if (identity == null)
+            {
+                throw new ArgumentNullException("identity can not be null!");
+            }
 
+            if (passphrase == null)
+            {
+                throw new ArgumentNullException("passphrase can not be null!");
+            }
+
+            if (publicKeyAlgorithm == PublicKeyAlgorithm.DSA_ELGAMAL && publicKeyLength > PublicKeyLength.BITS_1024 )
+            {
+                throw new InvalidParameterException("Key length must be <= 1024 bits with DSA/ELGAMAL algorithm.");
+            }
+
+            this.identity = identity;
+            this.passphrase = passphrase;
             this.publicKeyAlgorithm = publicKeyAlgorithm;
             this.publicKeyLength = publicKeyLength;
+
+
         }
 
         /// <summary>
@@ -149,7 +163,7 @@ namespace Safester.CryptoLibrary.Api
 
             IAsymmetricCipherKeyPairGenerator dsaKpg = GeneratorUtilities.GetKeyPairGenerator("DSA");
             DsaParametersGenerator pGen = new DsaParametersGenerator();
-            pGen.Init((int) PublicKeyLength.BITS_1024, 80, new SecureRandom()); // DSA is 1024 even for long 2048+ ElGamal keys 
+            pGen.Init((int)publicKeyLength, 80, new SecureRandom());
             DsaParameters dsaParams = pGen.GenerateParameters();
             DsaKeyGenerationParameters kgp = new DsaKeyGenerationParameters(secureRandom, dsaParams);
             dsaKpg.Init(kgp);
@@ -161,15 +175,8 @@ namespace Safester.CryptoLibrary.Api
             AsymmetricCipherKeyPair dsaKp = dsaKpg.GenerateKeyPair();
             IAsymmetricCipherKeyPairGenerator elgKpg = GeneratorUtilities.GetKeyPairGenerator("ELGAMAL");
 
-            Group elgamalGroup = Precomputed.GetElGamalGroup((int) this.publicKeyLength);
-
-            if (elgamalGroup == null)
-            {
-                throw new ArgumentException("ElGamal Group not found for key length: " + this.publicKeyLength);
-            }
-
-            Org.BouncyCastle.Math.BigInteger p = elgamalGroup.GetP();
-            Org.BouncyCastle.Math.BigInteger g = elgamalGroup.GetG();
+            Org.BouncyCastle.Math.BigInteger g = new Org.BouncyCastle.Math.BigInteger("153d5d6172adb43045b68ae8e1de1070b6137005686d29d3d73a7749199681ee5b212c9b96bfdcfa5b20cd5e3fd2044895d609cf9b410b7a0f12ca1cb9a428cc", 16);
+            Org.BouncyCastle.Math.BigInteger p = new Org.BouncyCastle.Math.BigInteger("9494fec095f3b85ee286542b3836fc81a5dd0a0349b4c239dd38744d488cf8e31db8bcb7d33b41abb9e5a33cca9144b1cef332c94bf0573bf047a3aca98cdf3b", 16);
 
             secureRandom = PgpEncryptionUtil.GetSecureRandom();
             ElGamalParameters elParams = new ElGamalParameters(p, g);

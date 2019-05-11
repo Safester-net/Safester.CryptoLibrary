@@ -7,15 +7,15 @@
     <Product>Safester.Cryptolibrary</Product>
     <PackageLicenseUrl>https://github.com/kawansoft/Safester.CryptoLibrary/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/kawansoft/Safester.CryptoLibrary</PackageProjectUrl>
-    <Version>1.0.12</Version>
+    <Version>1.0.13</Version>
     <Copyright>KawanSoft, 2019</Copyright>
     <PackageIconUrl>https://www.runsafester.net/img/safester-new-64x64.png</PackageIconUrl>
     <Description>Simple and easy to use OpenPGP library</Description>
     <PackageTags>Crypto Encryption Decryption OpenPGP Cryptography RSA DSA AES ELGAMAL Security Email Encryption File Encryption</PackageTags>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>Clean license info.</PackageReleaseNotes>
-    <AssemblyVersion>1.0.12.0</AssemblyVersion>
-    <FileVersion>1.0.12.0</FileVersion>
+    <PackageReleaseNotes>Key pair generation: El Gamal with long 2028+ keys is now implemented.</PackageReleaseNotes>
+    <AssemblyVersion>1.0.13.0</AssemblyVersion>
+    <FileVersion>1.0.13.0</FileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>bin\Release\netstandard1.3\Safester.CryptoLibrary.xml</DocumentationFile>

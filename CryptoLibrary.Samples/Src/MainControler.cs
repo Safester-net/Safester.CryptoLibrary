@@ -41,7 +41,7 @@ namespace CryptoLibrary.Samples.Src
 
         public const string identity = "myemail@domain.com";
         public static string passphrase = null;
-        public static PublicKeyAlgorithm pgpAsymAlgo = PublicKeyAlgorithm.RSA;
+        public static PublicKeyAlgorithm pgpAsymAlgo = PublicKeyAlgorithm.DSA_ELGAMAL;
         public static PublicKeyLength pgpAsymKeyLength = PublicKeyLength.BITS_2048;
 
         public static void Main(string[] args)

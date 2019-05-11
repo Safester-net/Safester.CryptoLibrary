@@ -39,11 +39,11 @@ namespace Safester.CryptoLibrary.Api
         /// <summary>
         /// Version number.
         /// </summary>
-        public static readonly String VERSION_NUMBER = "v1.0.12";
+        public static readonly String VERSION_NUMBER = "v1.0.13";
 
         /// <summary>
         /// Release date
         /// </summary>
-        public static readonly String DATE = "07-may-2019";
+        public static readonly String DATE = "11-may-2019";
     }
 }
