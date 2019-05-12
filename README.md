@@ -205,5 +205,5 @@ Console.WriteLine(decryptedText);
 ```
 ## Code Samples
 
-More samples are available on GitHub at: https://github.com/kawansoft/Safester.CryptoLibrary 
+More samples are available in [samples directory](https://github.com/kawansoft/Safester.CryptoLibrary/tree/master/CryptoLibrary.Samples/Src/samples). 
 
